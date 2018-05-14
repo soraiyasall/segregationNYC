@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    
-    <link rel="stylesheet" type="text/css" href="./css/health.css">
-
-   </head>
-
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+	<link rel="stylesheet" type="text/css" href="./css/health.css">
+</head>
 <body>
+	<div id="map"></div>
+	<div id="popup" class="hide">
+		<div class="content"></div>
+	</div>
 
-    <select id="filterField">
-        <option selected disabled value="">--</option>
-        <option value="Men">Men</option>
-        <option value="Women">Women</option>
-        <option value="White">Caucasian</option>
-        <option value="Black">Black</option>
-        <option value="Native">Native</option>
-        <option value="Asian">Asian</option>
-        <option value="Hispanic">Hispanic</option>
-        <option value="Income">Median Income</option>
-        <option value="Unemployment">Unemployment Rate</option>
-    </select>
+	<select id="filterField">
+		<option selected disabled value="">--</option>
+		<option value="Men">Men</option>
+		<option value="Women">Women</option>
+		<option value="White">Caucasian</option>
+		<option value="Black">Black</option>
+		<option value="Native">Native</option>
+		<option value="Asian">Asian</option>
+		<option value="Hispanic">Hispanic</option>
+		<option value="Income">Median Income</option>
+		<option value="Unemployment">Unemployment Rate</option>
+	</select>
 
+	<!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/2.10.0/d3.v2.min.js"></script>
 
+	<script type="text/javascript" src="./assets/nyc_ct.js"></script>
+	<script src="js/index.js"></script>
 
-    <div id="map"></div>
-
-	<script type="text/javascript" src="./assets/require.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrmpo41rCZfkN9Qu6QWCb08JSXU9K6yY4&callback=initMap"
-    async defer></script>
-    <script src="js/index.js"></script>
-    
-    
-    
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrmpo41rCZfkN9Qu6QWCb08JSXU9K6yY4&callback=initMap" async defer></script>    
 </body>
 </html>
-
-
-

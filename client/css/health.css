@@ -95,7 +95,42 @@ a {
   text-align: center;
 }
 
-#map {
-  height: 100%;
+body {
+  height: 100vh;
+}
 
+#map {
+  position: static;
+  height: 80vh;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+#popup {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: 1px solid black;
+  width: 333px;
+  height: 250px;
+  transition: .3s;
+  background: #fff;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
 }
