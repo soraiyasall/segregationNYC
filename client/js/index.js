@@ -26,70 +26,70 @@ const census = (function() {
     };
 
     const attachEvents = map => {
-        document.getElementById('filterField').addEventListener('change', e => {
-            const value = e.target.options[e.target.selectedIndex].value;
-    
-            if(population.indexOf(value) !== -1) {
+            document.querySelectorAll('.population').forEach(el => {
+                el.addEventListener('click', e => {
                     fetch('/census/population')
                         .then(res => res.json())
                         .then(data => {
                             map.data.setStyle(feature => {
                                 return {
-                                    fillColor: getColors('pop', data.find(item => item.Tract === feature.f.geoid)[value]),
+                                    fillColor: getColors('pop', data.find(item => item.Tract === feature.f.geoid)[e.target.value]),
                                     fillOpacity: .8,
                                     strokeWeight: 1,
                                     strokeColor: '#b393b3',
                                 }
                             });
                         });
-    
-            } else if (ethnicity.indexOf(value) !== -1){
+                });
+            });
+            document.querySelectorAll('.ethnicity').forEach(el => {
+                el.addEventListener('click', e => {
                     fetch('/census/ethnicity')
                         .then(res => res.json())
                         .then(data => {
                             map.data.setStyle(feature => {
                                 return {
-                                    fillColor: getColors('rate', data.find(item => item.Tract === feature.f.geoid)[value]),
+                                    fillColor: getColors('rate', data.find(item => item.Tract === feature.f.geoid)[e.target.value]),
                                     fillOpacity: .8,
                                     strokeWeight: 1,
                                     strokeColor: '#b393b3',
                                 }
                             });
                         });
-
-    
-            } else if (income.indexOf(value) !== -1){
-                fetch('/census/income')
-                    .then(res => res.json())
-                    .then(data => {
-                        map.data.setStyle(feature => {
-                            return {
-                                fillColor: getColors('income', data.find(item => item.Tract === feature.f.geoid)[value]),
-                                fillOpacity: .8,
-                                strokeWeight: 1,
-                                strokeColor: '#b393b3',
-                            }
+                });
+            });
+            document.querySelectorAll('.income').forEach(el => {
+                el.addEventListener('click', e => {
+                    fetch('/census/income')
+                        .then(res => res.json())
+                        .then(data => {
+                            map.data.setStyle(feature => {
+                                return {
+                                    fillColor: getColors('income', data.find(item => item.Tract === feature.f.geoid)[e.target.value]),
+                                    fillOpacity: .8,
+                                    strokeWeight: 1,
+                                    strokeColor: '#b393b3',
+                                }
+                            });
                         });
-                    });
-
-
-            } else if (unemployment.indexOf(value) !== -1){
-                fetch('/census/unemployment')
-                    .then(res => res.json())
-                    .then(data => {
-                        map.data.setStyle(feature => {
-                            return {
-                                fillColor: getColors('unemp', data.find(item => item.Tract === feature.f.geoid)[value]),
-                                fillOpacity: .8,
-                                strokeWeight: 1,
-                                strokeColor: '#b393b3',
-                            }
+                });
+            });
+            document.querySelectorAll('.unemployment').forEach(el => {
+                el.addEventListener('click', e => {
+                    fetch('/census/unemployment')
+                        .then(res => res.json())
+                        .then(data => {
+                            map.data.setStyle(feature => {
+                                return {
+                                    fillColor: getColors('unemp', data.find(item => item.Tract === feature.f.geoid)[e.target.value]),
+                                    fillOpacity: .8,
+                                    strokeWeight: 1,
+                                    strokeColor: '#b393b3',
+                                }
+                            });
                         });
-                    });
-
-            }
-
-        });
+                });
+            });
     };
 
     const getColors = (type, val) => {
