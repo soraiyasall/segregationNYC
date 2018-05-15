@@ -105,7 +105,7 @@ app.get('/taxi', (req, res) => {
  ******************************/
 app.get('/hospitals', (req, res) => {
 
-    connection.query('SELECT Unemployment, Tract FROM ucfnssa.blocks2;', function (error, results, fields) {
+    connection.query('SELECT * FROM ucfnssa.hospitals;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -114,6 +114,73 @@ app.get('/hospitals', (req, res) => {
       });
 });
 
+app.get('/hospitals/age', (req, res) => {
+
+    connection.query('SELECT per_0_17, per_18_29, per_30_49, per_50_69, per_70, latitude, longitude FROM ucfnssa.hospitals;', function (error, results, fields) {
+        if (error) {
+            console.log(error);
+        }
+        console.log(results);
+        res.json(results);
+      });
+
+});
+app.get('/hospitals/severity', (req, res) => {
+
+    connection.query('SELECT per_extremeseverity, per_majorseverity, per_minorseverity, per_moderateseverity, latitude, longitude FROM ucfnssa.hospitals;', function (error, results, fields) {
+        if (error) {
+            console.log(error);
+        }
+        console.log(results);
+        res.json(results);
+      });
+
+});
+
+app.get('/hospitals/race', (req, res) => {
+
+    connection.query('SELECT per_black, per_multiracial, per_otherrace, per_white, latitude, longitude FROM ucfnssa.hospitals;', function (error, results, fields) {
+        if (error) {
+            console.log(error);
+        }
+        console.log(results);
+        res.json(results);
+      });
+
+});
+app.get('/hospitals/payment', (req, res) => {
+
+    connection.query('SELECT per_bluecross_blueshield, per_depofcorrections, federal_state_local_va, per_managedcare, per_medicaid, per_medicare, per_miscpayment, per_private, per_selfpayment, per_unknownpayment, latitude, longitude FROM ucfnssa.hospitals;', function (error, results, fields) {
+        if (error) {
+            console.log(error);
+        }
+        console.log(results);
+        res.json(results);
+      });
+
+});
+app.get('/hospitals/gender', (req, res) => {
+
+    connection.query('SELECT per_male, per_females,  patients, latitude, longitude FROM ucfnssa.hospitals;', function (error, results, fields) {
+        if (error) {
+            console.log(error);
+        }
+        console.log(results);
+        res.json(results);
+      });
+
+});
+app.get('/hospitals/ethnicity', (req, res) => {
+
+    connection.query('SELECT per_hispanic, per_nonHispanic,  per_multi_ethnic, per_unknown, latitude, longitude FROM ucfnssa.hospitals;', function (error, results, fields) {
+        if (error) {
+            console.log(error);
+        }
+        console.log(results);
+        res.json(results);
+      });
+
+});
 
 var server = app.listen(PORT, _ => {
     console.log('Server listening on port: ', PORT);
