@@ -35,8 +35,9 @@ const census = (function() {
                         .then(res => res.json())
                         .then(data => {
                             map.data.setStyle(feature => {
+                                const tract = data.find(item => item.Tract === feature.f.geoid);
                                 return {
-                                    fillColor: getColors('pop', data.find(item => item.Tract === feature.f.geoid)[e.target.value]),
+                                    fillColor: getColors('pop', tract ? tract[e.target.value] : 0),
                                     fillOpacity: .8,
                                     strokeWeight: 1,
                                     strokeColor: '#b393b3',
@@ -52,8 +53,9 @@ const census = (function() {
                         .then(res => res.json())
                         .then(data => {
                             map.data.setStyle(feature => {
+                                const tract = data.find(item => item.Tract === feature.f.geoid);
                                 return {
-                                    fillColor: getColors('rate', data.find(item => item.Tract === feature.f.geoid)[e.target.value]),
+                                    fillColor: getColors('rate', tract ? tract[e.target.value] : 0),
                                     fillOpacity: .8,
                                     strokeWeight: 1,
                                     strokeColor: '#b393b3',
@@ -69,8 +71,9 @@ const census = (function() {
                         .then(res => res.json())
                         .then(data => {
                             map.data.setStyle(feature => {
+                                const tract = data.find(item => item.Tract === feature.f.geoid);
                                 return {
-                                    fillColor: getColors('income', data.find(item => item.Tract === feature.f.geoid)[e.target.value]),
+                                    fillColor: getColors('income', tract ? tract[e.target.value] : 0),
                                     fillOpacity: .8,
                                     strokeWeight: 1,
                                     strokeColor: '#b393b3',
@@ -86,8 +89,9 @@ const census = (function() {
                         .then(res => res.json())
                         .then(data => {
                             map.data.setStyle(feature => {
+                                const tract = data.find(item => item.Tract === feature.f.geoid);
                                 return {
-                                    fillColor: getColors('unemp', data.find(item => item.Tract === feature.f.geoid)[e.target.value]),
+                                    fillColor: getColors('unemp', tract ? tract[e.target.value] : 0),
                                     fillOpacity: .8,
                                     strokeWeight: 1,
                                     strokeColor: '#b393b3',
@@ -304,7 +308,7 @@ const census = (function() {
                         const inner = document.querySelector('.content');
                         const content = `
                             <ul>
-                                <li>Census Tract${e.feature.f.geoid}</li>
+                                <li>Census Tract: ${e.feature.f.geoid}</li>
                                 <li>Borough Name: ${data.Borough}</li>
                                 <li>Total Pop: ${data.TotalPop}</li>
                                 <li>${selectedField}: ${data[selectedField]}</li>
