@@ -22,6 +22,16 @@ app.use(express.static('../client/'))
 
 app.get('/', (req, res) => {
     res.sendFile('index.html')
+});
+
+app.get('/get/:geoid', (req, res) => {
+    connection.query('SELECT * FROM ucfnssa.blocks2 WHERE tract=' + req.params.geoid + ';', function (error, results, fields) {
+        if (error) {
+            console.log(error);
+        }
+        console.log(results[0]);
+        res.json(results[0]);
+      });
 })
 
 /*******************************

@@ -187,10 +187,10 @@ body {
   top: 100px;
   left: 10px;
   width: 15em;
-  background-color: #2f2fa280;
+  background-color: #fff;
   height: 10em;
   transition: .3s;
-  border-radius: 25px;
+  border: 1px solid #ccc;
 }
 
 .content {
