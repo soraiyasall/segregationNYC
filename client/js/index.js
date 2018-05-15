@@ -308,10 +308,10 @@ const census = (function() {
                         const inner = document.querySelector('.content');
                         const content = `
                             <ul>
-                                <li>Census Tract: ${e.feature.f.geoid}</li>
-                                <li>Borough Name: ${data.Borough}</li>
-                                <li>Total Pop: ${data.TotalPop}</li>
-                                <li>${selectedField}: ${data[selectedField]}</li>
+                                <li><span class="title">Census Tract:</span> ${e.feature.f.geoid}</li>
+                                <li><span class="title">Borough Name:</span> ${data.Borough}</li>
+                                <li><span class="title">Total Pop:</span> ${data.TotalPop}</li>
+                                <li><span class="title">${selectedField}:</span> ${data[selectedField]}</li>
                             </ul>`; 
                         inner.innerHTML = content;
                         container.className = 'show';
