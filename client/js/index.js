@@ -25,9 +25,12 @@ const census = (function() {
         return d[s];
     };
 
+    let selectedField;
+
     const attachEvents = map => {
             document.querySelectorAll('.population').forEach(el => {
                 el.addEventListener('click', e => {
+                    selectedField = e.target.value;
                     fetch('/census/population')
                         .then(res => res.json())
                         .then(data => {
@@ -44,6 +47,7 @@ const census = (function() {
             });
             document.querySelectorAll('.ethnicity').forEach(el => {
                 el.addEventListener('click', e => {
+                    selectedField = e.target.value;
                     fetch('/census/ethnicity')
                         .then(res => res.json())
                         .then(data => {
@@ -60,6 +64,7 @@ const census = (function() {
             });
             document.querySelectorAll('.income').forEach(el => {
                 el.addEventListener('click', e => {
+                    selectedField = e.target.value;
                     fetch('/census/income')
                         .then(res => res.json())
                         .then(data => {
@@ -76,6 +81,7 @@ const census = (function() {
             });
             document.querySelectorAll('.unemployment').forEach(el => {
                 el.addEventListener('click', e => {
+                    selectedField = e.target.value;
                     fetch('/census/unemployment')
                         .then(res => res.json())
                         .then(data => {
@@ -291,12 +297,21 @@ const census = (function() {
                 }
             });
             map.data.addListener('mouseover', function(e) {
-                console.log(e)
-                const container = document.getElementById('popup');
-                const inner = document.querySelector('.content');
-                const content = `<h1>${e.feature.f.geoid}</h1>`; 
-                inner.innerHTML = content;
-                container.className = 'show';
+                fetch('/get/' + e.feature.f.geoid)
+                    .then(res => res.json())
+                    .then(data => {
+                        const container = document.getElementById('popup');
+                        const inner = document.querySelector('.content');
+                        const content = `
+                            <ul>
+                                <li>Census Tract${e.feature.f.geoid}</li>
+                                <li>Borough Name: ${data.Borough}</li>
+                                <li>Total Pop: ${data.TotalPop}</li>
+                                <li>${selectedField}: ${data[selectedField]}</li>
+                            </ul>`; 
+                        inner.innerHTML = content;
+                        container.className = 'show';
+                    })
             });
                
             map.data.addListener('mouseout', function(e) {
