@@ -4,6 +4,8 @@
 	<link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
 	<link rel="stylesheet" type="text/css" href="./css/health.css">
 	<link href="https://fonts.googleapis.com/css?family=Alegreya:400,700,800|Open+Sans:700" rel="stylesheet">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 
 </head>
 <body>
@@ -71,6 +73,38 @@
 			--><li><span class="text">asd</span><span class="color darkest"></span><span class="text">asd</span></li>
 		</ul>
 	</div>
+	<div class="charts">
+		<div class="filterField2">
+			<h3>Pick a filter</h3>
+				<select id="9chartsFilter">
+					<option class="ethnicity" name="filter" type="options" value="per_hispanic" disabled selected>--</option>
+					<option class="ethnicity" name="filter" type="options" value="per_multi_ethnic">per_multi_ethnic</option>
+					<option class="ethnicity" name="filter" type="options" value="per_unknown">per_unknown</option>
+					<option class="race" name="filter" type="options" value="per_black">per_black</option>
+					<option class="race" name="filter" type="options" value="per_multiracial">per_multiracial</option>
+					<option class="race" name="filter" type="options" value="per_otherrace">per_otherrace</option>
+					<option class="race" name="filter" type="options" value="per_white">per_white</option>
+					<option class="age" name="filter" type="options" value="per_0_17">per_0_17</option>
+					<option class="age" name="filter" type="options" value="per_18_29">per_18_29</option>
+					<option class="age" name="filter" type="options" value="per_30_49">per_30_49</option>
+					<option class="age" name="filter" type="options" value="per_50_69">per_50_69</option>
+					<option class="age" name="filter" type="options" value="per_70">per_70</option>
+			</select>
+		
+		</div>
+		<div class="chart" id="per_bluecross_blueshield_chart" style="width: 900px; height: 500px;"></div>
+		<div class="chart" id="per_depofcorrections_chart" style="width: 900px; height: 500px;"></div>
+		<div class="chart" id="federal_state_local_va_chart" style="width: 900px; height: 500px;"></div>
+		<div class="chart" id="per_managedcare_chart" style="width: 900px; height: 500px;"></div>
+		<div class="chart" id="per_medicaid_chart" style="width: 900px; height: 500px;"></div>
+		<div class="chart" id="per_medicare_chart" style="width: 900px; height: 500px;"></div>
+		<div class="chart" id="per_miscpayment_chart" style="width: 900px; height: 500px;"></div>
+		<div class="chart" id="per_private_chart" style="width: 900px; height: 500px;"></div>
+		<div class="chart" id="per_selfpayment_chart" style="width: 900px; height: 500px;"></div>
+		<div class="chart" id="per_unknownpayment_chart" style="width: 900px; height: 500px;"></div>
+
+	</div>
+
 	<div class="nextsection">
 		<div class="nextinfo">
 			<p>ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,</p>
@@ -93,7 +127,7 @@
 
 	<script type="text/javascript" src="./assets/hos2.js"></script>
 	<script src="js/maptwo.js"></script>
-
+	<script src="js/charts.js"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrmpo41rCZfkN9Qu6QWCb08JSXU9K6yY4&callback=initMap" async defer></script>    
 </body>
 </html>

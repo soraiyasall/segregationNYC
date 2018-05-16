@@ -459,3 +459,4 @@ const hospitals = (function() {
 })();
 
 hospitals.init();
+
