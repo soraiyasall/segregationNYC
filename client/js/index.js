@@ -341,3 +341,26 @@ const census = (function() {
 })();
 
 census.init();
+
+	// Load google charts
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    
+    // Draw the chart and set the chart values
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ['Race', 'PopTotal'],
+      ['Black', 1875278],
+      ['Native', 15481],
+      ['Asian', 1126856],
+      ['White', 2724805],
+      ['Hispanic', 2418646]
+    ], false);
+    
+      // Optional; add a title and set the width and height of the chart
+      var options = {'width':400, 'height':300, colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'], backgroundColor: {'fill': '#2f2fa2', 'opacity': 100}};
+    
+      // Display the chart inside the <div> element with id="piechart"
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    };

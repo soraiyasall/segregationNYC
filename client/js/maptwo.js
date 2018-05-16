@@ -58,6 +58,8 @@ const hospitals = (function() {
 
     let selectedField;
 
+    
+
     const attachEvents = map => {
         document.querySelectorAll('.severity').forEach(el => {
             el.addEventListener('click', e => {
@@ -65,13 +67,27 @@ const hospitals = (function() {
                 fetch('/hospitals/severity')
                     .then(res => res.json())
                     .then(data => {
-                        map.data.setStyle(feature => {
-                            const facid = data.find(item => item.fac_id === feature.f.id);
-                            return {
-                                icon: getCircle( facid ? facid[e.target.value] : 0)
+                        data.forEach (entry => {
+                            severity.forEach (variable => {
+                                let circle = new google.maps.Polyline({
+                                    path: google.maps.SymbolPath.CIRCLE,
+                                    fillColor: 'red',
+                                    fillOpacity: .2,
+                                    scale: Math.pow(2, entry[variable])/2,
+                                    strokeColor: 'white',
+                                    strokeWeight: .5
+                                  });
+                                  circle.setMap(map)
+                            })
+                        })
 
-                            }
-                        });
+                        // map.data.Polyline(feature => {
+                        //     const facid = data.find(item => item.fac_id === feature.f.id);
+                        //     return {
+                        //         icon: getCircle( facid ? facid[e.target.value] : 0)
+
+                        //     }
+                        // });
                     });
             });
         });
