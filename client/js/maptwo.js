@@ -1,9 +1,8 @@
 const hospitals = (function() {
-    // const CIRCLE = ['#feebe2','#fbb4b9','#f768a1','#c51b8a','#7a0177'];
+    const COLORS = ['#feebe2','#fbb4b9','#f768a1','#c51b8a','#7a0177','#feebe2','#fbb4b9','#f768a1','#c51b8a','#7a0177'];
     const centers =[
         'latitude',
         'longitude'
-
     ];
     const age = [
         'per_0_17',
@@ -59,35 +58,156 @@ const hospitals = (function() {
     let selectedField;
 
     const attachEvents = map => {
-        document.querySelectorAll('.severity').forEach(el => {
-            el.addEventListener('click', e => {
+        document.querySelector('.severity').addEventListener('click', e => {
                 selectedField = e.target.value;
                 fetch('/hospitals/severity')
                     .then(res => res.json())
                     .then(data => {
-                        map.data.setStyle(feature => {
-                            const facid = data.find(item => item.fac_id === feature.f.id);
-                            return {
-                                icon: getCircle( facid ? facid[e.target.value] : 0)
-
-                            }
+                        const tract = data.filter(item => {
+                            const id = item.fac_id;
+                            return geoJson.features.find(t => t.properties.id === id);
+                        });
+                        tract.forEach(entry => {
+                            severity.forEach((variable, i) => {
+                                let circle = new google.maps.Circle({
+                                    fillColor: COLORS[i],
+                                    fillOpacity: .2,
+                                    radius: entry[variable] *30,
+                                    strokeColor: 'white',
+                                    strokeWeight: .5,
+                                    map: map,
+                                    center: {lat: entry.latitude, lng: entry.longitude},
+                                });
+                            });
                         });
                     });
             });
-        });
+        document.querySelector('.age').addEventListener('click', e => {
+                selectedField = e.target.value;
+                fetch('/hospitals/age')
+                    .then(res => res.json())
+                    .then(data => {
+                        const tract = data.filter(item => {
+                            const id = item.fac_id;
+                            return geoJson.features.find(t => t.properties.id === id);
+                        });
+                        tract.forEach(entry => {
+                            age.forEach((variable, i)=> {
+                                let circle = new google.maps.Circle({
+                                    fillColor: COLORS[i],
+                                    fillOpacity: .2,
+                                    radius: entry[variable] * 30,
+                                    strokeColor: 'white',
+                                    strokeWeight: .5,
+                                    map: map,
+                                    center: {lat: entry.latitude, lng: entry.longitude},
+                                });
+                            });
+                        });
+                    });
+            });
+            document.querySelector('.race').addEventListener('click', e => {
+                selectedField = e.target.value;
+                fetch('/hospitals/race')
+                    .then(res => res.json())
+                    .then(data => {
+                        const tract = data.filter(item => {
+                            const id = item.fac_id;
+                            return geoJson.features.find(t => t.properties.id === id);
+                        });
+                        tract.forEach(entry => {
+                            race.forEach((variable, i) => {
+                                let circle = new google.maps.Circle({
+                                    fillColor: COLORS[i],
+                                    fillOpacity: .2,
+                                    radius: entry[variable] *30,
+                                    strokeColor: 'white',
+                                    strokeWeight: .5,
+                                    map: map,
+                                    center: {lat: entry.latitude, lng: entry.longitude},
+                                });
+                            });
+                        });
+                    });
+            });
+            document.querySelector('.ethnicity').addEventListener('click', e => {
+                selectedField = e.target.value;
+                fetch('/hospitals/ethnicity')
+                    .then(res => res.json())
+                    .then(data => {
+                        const tract = data.filter(item => {
+                            const id = item.fac_id;
+                            return geoJson.features.find(t => t.properties.id === id);
+                        });
+                        tract.forEach(entry => {
+                            ethnicity.forEach((variable, i) => {
+                                let circle = new google.maps.Circle({
+                                    fillColor: COLORS[i],
+                                    fillOpacity: .2,
+                                    radius: entry[variable] *30,
+                                    strokeColor: 'white',
+                                    strokeWeight: .5,
+                                    map: map,
+                                    center: {lat: entry.latitude, lng: entry.longitude},
+                                });
+                            });
+                        });
+                    });
+            });
+            document.querySelector('.payment').addEventListener('click', e => {
+                selectedField = e.target.value;
+                fetch('/hospitals/payment')
+                    .then(res => res.json())
+                    .then(data => {
+                        const tract = data.filter(item => {
+                            const id = item.fac_id;
+                            return geoJson.features.find(t => t.properties.id === id);
+                        });
+                        tract.forEach(entry => {
+                            payment.forEach((variable, i) => {
+                                let circle = new google.maps.Circle({
+                                    fillColor: COLORS[i],
+                                    fillOpacity: .2,
+                                    radius: entry[variable] *30,
+                                    strokeColor: 'white',
+                                    strokeWeight: .5,
+                                    map: map,
+                                    center: {lat: entry.latitude, lng: entry.longitude},
+                                });
+                            });
+                        });
+                    });
+            });
+            document.querySelector('.gender').addEventListener('click', e => {
+                selectedField = e.target.value;
+                fetch('/hospitals/gender')
+                    .then(res => res.json())
+                    .then(data => {
+                        const tract = data.filter(item => {
+                            const id = item.fac_id;
+                            return geoJson.features.find(t => t.properties.id === id);
+                        });
+                        tract.forEach(entry => {
+                            gender.forEach((variable, i) => {
+                                let circle = new google.maps.Circle({
+                                    fillColor: COLORS[i],
+                                    fillOpacity: .2,
+                                    radius: entry[variable]/5,
+                                    strokeColor: 'white',
+                                    strokeWeight: .5,
+                                    map: map,
+                                    center: {lat: entry.latitude, lng: entry.longitude},
+                                });
+                            });
+                        });
+                    });
+            });
+
+
+
+
     };
-
-
-    const getCircle = (val) => {
-        return {
-        path: google.maps.SymbolPath.CIRCLE,
-        fillColor: 'red',
-        fillOpacity: .2,
-        scale: Math.pow(2, val)/2,
-        strokeColor: 'white',
-        strokeWeight: .5
-        }; 
-    }
+    
 
     const buildMap = _ => {
         let map;
@@ -265,43 +385,8 @@ const hospitals = (function() {
                 ]           
             });
 
-            map.data.addGeoJson(geoJson);
-
-            map.data.setStyle(feature => {
-                return {
-                    fillColor: '#ffffff',
-                    fillOpacity: 0,
-                    strokeWeight: .5,
-                    strokeColor: '#ccc',
-                }
-            });
 
             attachEvents(map);
-
-            // map.data.addListener('mouseover', function(e) {
-            //     fetch('/get/' + e.feature.f.geoid)
-            //         .then(res => res.json())
-            //         .then(data => {
-            //             const container = document.getElementById('popup');
-            //             const inner = document.querySelector('.content');
-            //             const content = `
-            //                 <ul>
-            //                     <li><span class="title">Census Tract:</span> ${e.feature.f.geoid}</li>
-            //                     <li><span class="title">Borough Name:</span> ${data.Borough}</li>
-            //                     <li><span class="title">Total Pop:</span> ${data.TotalPop}</li>
-            //                     <li><span class="title">${selectedField}:</span> ${data[selectedField]}</li>
-            //                 </ul>`; 
-            //             inner.innerHTML = content;
-            //             container.className = 'show';
-            //         })
-            // });
-            
-            // map.data.addListener('mouseout', function(e) {
-            //     const container = document.getElementById('popup');
-            //     container.className = 'hide';
-            // });
-
-            // attachEvents(map);
         };
 
 
