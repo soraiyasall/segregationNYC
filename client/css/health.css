@@ -346,3 +346,10 @@ padding: 0.3em;
 .lightest {
   background: #feebe2;
 }
+
+.chart {
+  max-width: 333px;
+  max-height: 333px;
+  display: inline-block;
+  vertical-align: top;
+}
