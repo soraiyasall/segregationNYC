@@ -182,9 +182,9 @@ app.get('/hospitals/ethnicity', (req, res) => {
 
 });
 
-app.get('/hospitals/centers', (req, res) => {
+app.get('/hospitals/charges', (req, res) => {
 
-    connection.query('SELECT latitude, longitude, fac_id FROM ucfnssa.hospitals;', function (error, results, fields) {
+    connection.query('SELECT total_charges, latitude, longitude  FROM ucfnssa.hospitals;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }

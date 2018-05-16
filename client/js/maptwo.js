@@ -4,6 +4,13 @@ const hospitals = (function() {
         'latitude',
         'longitude'
     ];
+    const patients = [
+        'patients'
+    ];
+    const charges = [
+        'total_charges'
+    ];
+
     const age = [
         'per_0_17',
         'per_18_29',
@@ -41,7 +48,6 @@ const hospitals = (function() {
     const gender = [
         'per_male',
         'per_females',
-        'patients'
     ];
 
     const ethnicity = [
@@ -57,7 +63,7 @@ const hospitals = (function() {
 
     let selectedField;
 
-    
+    let circles = [];
 
     const attachEvents = map => {
         document.querySelector('.severity').addEventListener('click', e => {
@@ -69,14 +75,14 @@ const hospitals = (function() {
                             const id = item.fac_id;
                             return geoJson.features.find(t => t.properties.id === id);
                         });
-                        tract.forEach(entry => {
+                        tract.forEach((entry, j) => {
                             severity.forEach((variable, i) => {
                                 let circle = new google.maps.Circle({
                                     fillColor: COLORS[i],
-                                    fillOpacity: .2,
+                                    fillOpacity: .5,
                                     radius: entry[variable] *30,
                                     strokeColor: 'white',
-                                    strokeWeight: .5,
+                                    strokeWeight: .1,
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
@@ -97,10 +103,10 @@ const hospitals = (function() {
                             age.forEach((variable, i)=> {
                                 let circle = new google.maps.Circle({
                                     fillColor: COLORS[i],
-                                    fillOpacity: .2,
+                                    fillOpacity: .5,
                                     radius: entry[variable] * 30,
                                     strokeColor: 'white',
-                                    strokeWeight: .5,
+                                    strokeWeight: .1,
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
@@ -109,6 +115,7 @@ const hospitals = (function() {
                     });
             });
             document.querySelector('.race').addEventListener('click', e => {
+                
                 selectedField = e.target.value;
                 fetch('/hospitals/race')
                     .then(res => res.json())
@@ -121,10 +128,10 @@ const hospitals = (function() {
                             race.forEach((variable, i) => {
                                 let circle = new google.maps.Circle({
                                     fillColor: COLORS[i],
-                                    fillOpacity: .2,
+                                    fillOpacity: .5,
                                     radius: entry[variable] *30,
                                     strokeColor: 'white',
-                                    strokeWeight: .5,
+                                    strokeWeight: .1,
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
@@ -145,10 +152,10 @@ const hospitals = (function() {
                             ethnicity.forEach((variable, i) => {
                                 let circle = new google.maps.Circle({
                                     fillColor: COLORS[i],
-                                    fillOpacity: .2,
+                                    fillOpacity: .5,
                                     radius: entry[variable] *30,
                                     strokeColor: 'white',
-                                    strokeWeight: .5,
+                                    strokeWeight: .1,
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
@@ -169,10 +176,10 @@ const hospitals = (function() {
                             payment.forEach((variable, i) => {
                                 let circle = new google.maps.Circle({
                                     fillColor: COLORS[i],
-                                    fillOpacity: .2,
+                                    fillOpacity: .5,
                                     radius: entry[variable] *30,
                                     strokeColor: 'white',
-                                    strokeWeight: .5,
+                                    strokeWeight: .1,
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
@@ -193,10 +200,10 @@ const hospitals = (function() {
                             gender.forEach((variable, i) => {
                                 let circle = new google.maps.Circle({
                                     fillColor: COLORS[i],
-                                    fillOpacity: .2,
-                                    radius: entry[variable]/5,
+                                    fillOpacity: .5,
+                                    radius: entry[variable]*30,
                                     strokeColor: 'white',
-                                    strokeWeight: .5,
+                                    strokeWeight: .1,
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
@@ -204,6 +211,53 @@ const hospitals = (function() {
                         });
                     });
             });
+            document.querySelector('.patients').addEventListener('click', e => {
+                selectedField = e.target.value;
+                fetch('/hospitals/gender')
+                    .then(res => res.json())
+                    .then(data => {
+                        const tract = data.filter(item => {
+                            const id = item.fac_id;
+                            return geoJson.features.find(t => t.properties.id === id);
+                        });
+                        tract.forEach(entry => {
+                            patients.forEach((variable, i) => {
+                                let circle = new google.maps.Circle({
+                                    fillColor: COLORS[i],
+                                    fillOpacity: .5,
+                                    radius: entry[variable]/8,
+                                    strokeColor: 'white',
+                                    strokeWeight: .1,
+                                    map: map,
+                                    center: {lat: entry.latitude, lng: entry.longitude},
+                                });
+                            });
+                        });
+                    });
+            });
+            document.querySelector('.charges').addEventListener('click', e => {
+                selectedField = e.target.value;
+                fetch('/hospitals/charges')
+                    .then(res => res.json())
+                    .then(data => {
+                        data.forEach(entry => {
+                            charges.forEach((variable, i) => {
+                                let circle = new google.maps.Circle({
+                                    fillColor: COLORS[i],
+                                    fillOpacity: .5,
+                                    radius: entry[variable]/20,
+                                    strokeColor: 'white',
+                                    strokeWeight: .1,
+                                    map: map,
+                                    center: {lat: entry.latitude, lng: entry.longitude},
+                                });
+                            });
+                        });
+                    });
+            });
+
+
+
 
 
 
