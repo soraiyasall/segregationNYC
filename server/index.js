@@ -97,7 +97,13 @@ app.get('/census/unemployment', (req, res) => {
  * TAXI                        *
  ******************************/
 app.get('/taxi', (req, res) => {
-
+    connection.query('SELECT * FROM ucfnssa.hospital_trips;', function (error, results, fields) {
+        if (error) {
+            console.log(error);
+        }
+        console.log(results);
+        res.json(results);
+      });
 });
 
 /*******************************

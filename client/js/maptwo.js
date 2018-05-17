@@ -75,7 +75,7 @@ const hospitals = (function() {
                             const id = item.fac_id;
                             return geoJson.features.find(t => t.properties.id === id);
                         });
-                        tract.forEach((entry, j) => {
+                        tract.forEach(entry => {
                             severity.forEach((variable, i) => {
                                 let circle = new google.maps.Circle({
                                     fillColor: COLORS[i],
@@ -255,13 +255,6 @@ const hospitals = (function() {
                         });
                     });
             });
-
-
-
-
-
-
-
     };
     
 
