@@ -6,10 +6,10 @@ var app = express();
 const PORT = process.env.PORT || 5000;
 
 var connection = mysql.createConnection({
-    host     : 'dev.spatialdatacapture.org',
-    user     : 'ucfnssa',
-    password : 'nohagepucu',
-    database : 'ucfnssa'
+    host     : 'eu-cdbr-west-02.cleardb.net',
+    user     : 'ba2d6a75473f25',
+    password : '0b4b5035',
+    database : 'heroku_6b92845af2eee79'
 });
  
 connection.connect(err => {
