@@ -15,7 +15,9 @@ var connection = mysql.createConnection({
 connection.connect(err => {
     if (err) {
         console.log(err);
+        return;
     }
+    console.log("Connected to database!")
 });
 
 app.use(express.static('client/'))
