@@ -5,8 +5,8 @@ const taxi = (function() {
         'longitude'
     ];
 
-
     let trips = [];
+
     
         //Function to calculate the distance between the dropoff coordinates and the hospital center
     const distance = (lat, lng, lat0, lng0) => {
@@ -37,9 +37,11 @@ const taxi = (function() {
                 center: {lat : hos.properties.latitude, lng : hos.properties.longitude}
             });
 
-            circle.addListener('mouseover', _ => {
-                if (trips.length > 0)
+            circle.addListener('mouseover', e => {
+                if (trips.length > 0) {
                     trips.forEach(c => c.setMap(null));
+                    trips = [];
+                }
 
                 state.forEach(entry => {
                     const tLat = entry.dropoff_latitude.toFixed(2);
@@ -55,7 +57,7 @@ const taxi = (function() {
                         ]
                         let path = new google.maps.Polyline({
                             strokeColor: 'white',
-                            strokeWeight: .75,
+                            strokeWeight: .5,
                             map: map,
                             path: coord, 
                             geodesic: true,
@@ -64,10 +66,23 @@ const taxi = (function() {
                         trips.push(path);
                     }
                 });
+
+                buildPopup(hos.properties.facility_name, trips.length);
             });
         });
     };
-    
+
+    const buildPopup = (hName, count) => {
+        const container = document.getElementById('popup');
+        const inner = document.querySelector('.content');
+        const content = `
+            <ul>
+                <li><span class="title">Hospital name:</span> ${hName} </li>
+                <li><span class="title">Number of trips:</span> ${count}</li>
+            </ul>`; 
+        inner.innerHTML = content;
+        container.className = 'show';
+    };
 
     const buildMap = _ => {
         let map;

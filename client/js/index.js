@@ -31,6 +31,7 @@ const census = (function() {
             document.querySelectorAll('.population').forEach(el => {
                 el.addEventListener('click', e => {
                     selectedField = e.target.value;
+                    changeLegend(selectedField);
                     fetch('/census/population')
                         .then(res => res.json())
                         .then(data => {
@@ -49,6 +50,7 @@ const census = (function() {
             document.querySelectorAll('.ethnicity').forEach(el => {
                 el.addEventListener('click', e => {
                     selectedField = e.target.value;
+                    changeLegend(selectedField);
                     fetch('/census/ethnicity')
                         .then(res => res.json())
                         .then(data => {
@@ -67,6 +69,7 @@ const census = (function() {
             document.querySelectorAll('.income').forEach(el => {
                 el.addEventListener('click', e => {
                     selectedField = e.target.value;
+                    changeLegend(selectedField);
                     fetch('/census/income')
                         .then(res => res.json())
                         .then(data => {
@@ -85,6 +88,7 @@ const census = (function() {
             document.querySelectorAll('.unemployment').forEach(el => {
                 el.addEventListener('click', e => {
                     selectedField = e.target.value;
+                    changeLegend(selectedField);
                     fetch('/census/unemployment')
                         .then(res => res.json())
                         .then(data => {
@@ -101,7 +105,27 @@ const census = (function() {
                 });
             });
     };
-
+    const getBreaks = (type)=>{
+        if (type === 'Men' || type === 'Women' || type === 'Asian' ||type === 'White' || type ==='Black' || type === 'Hispanic'){
+            return  [20,40,60,80,100]
+        } else if (type === 'Income'){
+            return ['2M','4M','6M','8M','10M']
+        }else if (type === 'Unemployment') {
+            return ['2M','4M','6M','8M','10M']
+        }else {
+            return[]
+        }
+    }            
+    const changeLegend = (selectedField)=>{
+        document.querySelector('.legend_content').innerHTML = `<span class="text">0</span>
+        <ul>
+            <li><span class="color lightest"></span><span class="text">${getBreaks(selectedField)[0]}</span></li><!--
+            --><li><span class="color light"></span><span class="text">${getBreaks(selectedField)[1]}</span></li><!--
+            --><li><span class="color medium"></span><span class="text">${getBreaks(selectedField)[2]}</span></li><!--
+            --><li><span class="color dark"></span><span class="text">${getBreaks(selectedField)[3]}</span></li><!--
+            --><li><span class="color darkest"></span><span class="text">${getBreaks(selectedField)[4]}</span></li>
+        </ul>`;
+    }
     const getColors = (type, val) => {
         if (type === 'rate') {
             return COLORS[Math.round(val / 20)]
@@ -114,7 +138,6 @@ const census = (function() {
         }
         
     }
-
     const buildMap = _ => {
         let map;
         const initMap = () => {
@@ -315,7 +338,7 @@ const census = (function() {
                                 <li><span class="title">${selectedField}:</span> ${data[selectedField]}</li>
                             </ul>`; 
                         inner.innerHTML = content;
-                        container.className = 'show';
+                        container.className = 'show';        
                     })
             });
                
@@ -323,6 +346,7 @@ const census = (function() {
                 const container = document.getElementById('popup');
                 container.className = 'hide';
             });
+
 
             attachEvents(map);
         };
@@ -364,3 +388,4 @@ census.init();
       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
       chart.draw(data, options);
     };
+
