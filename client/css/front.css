@@ -1,5 +1,6 @@
 body {
-    background-color: #ede6de;
+    background-color: #e6e8f4;
+    color: #323545;
 }
 
 section { 
@@ -16,9 +17,9 @@ a {
   }
 .btn {
     display: inline-block;
-    width: 4em;
-    height: 4em;
-    border: 0.5em solid white;
+    width: 3em;
+    height: 3em;
+    border: 0.3em solid white;
     border-radius: 50%;
     margin-left: 0.75em;
     padding: 0px;
@@ -26,22 +27,33 @@ a {
   
   .btn:after {
     content: '';
-      display: inline-block;
+    display: inline-block;
     margin-top: 0.6em;
-    width: 1.4em;
-    height: 1.4em;
-    border-top: 0.5em solid white;
-    border-right: 0.5em solid white;
+    width: 1em;
+    height: 1em;
+    border-top: 0.3em solid white;
+    border-right: 0.3em solid white;
     -moz-transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
   }
 
   a:hover .btn{
-    border: 0.5em solid #2f2fa2;
+    border: 0.3em solid #ff4172;
   }
   
   a:hover .btn:after{
-    border-top: 0.5em solid#2f2fa2;
-    border-right: 0.5em solid#2f2fa2;
+    border-top: 0.3em solid#ff4172;
+    border-right: 0.3em solid#ff4172;
+  }
+
+  .fa {
+    color: #536ade;
+  }
+
+  .container {
+      background-image:url("/img/rplot3.png");
+      background-repeat: none; 
+      background-size: 100% 100%
+
   }
