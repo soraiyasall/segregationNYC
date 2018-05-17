@@ -12,5 +12,8 @@
   "devDependencies": {
     "express": "^4.16.3",
     "mysql": "^2.15.0"
-  }
+  },
+  "engines": {
+    "node": "9.2.1"
+  },
 }
