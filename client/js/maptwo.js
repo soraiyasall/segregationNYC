@@ -67,6 +67,9 @@ const hospitals = (function() {
 
     const attachEvents = map => {
         document.querySelector('.severity').addEventListener('click', e => {
+                if (circles.length > 0)
+                    circles.forEach(c => c.setMap(null));
+
                 selectedField = e.target.value;
                 fetch('/hospitals/severity')
                     .then(res => res.json())
@@ -86,11 +89,15 @@ const hospitals = (function() {
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
+                                circles.push(circle)
                             });
+                            
                         });
                     });
             });
         document.querySelector('.age').addEventListener('click', e => {
+                if (circles.length > 0)
+                        circles.forEach(c => c.setMap(null));
                 selectedField = e.target.value;
                 fetch('/hospitals/age')
                     .then(res => res.json())
@@ -110,12 +117,14 @@ const hospitals = (function() {
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
+                                circles.push(circle)
                             });
                         });
                     });
             });
             document.querySelector('.race').addEventListener('click', e => {
-                
+                if (circles.length > 0)
+                circles.forEach(c => c.setMap(null));
                 selectedField = e.target.value;
                 fetch('/hospitals/race')
                     .then(res => res.json())
@@ -135,11 +144,14 @@ const hospitals = (function() {
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
+                                circles.push(circle)
                             });
                         });
                     });
             });
             document.querySelector('.ethnicity').addEventListener('click', e => {
+                if (circles.length > 0)
+                circles.forEach(c => c.setMap(null));
                 selectedField = e.target.value;
                 fetch('/hospitals/ethnicity')
                     .then(res => res.json())
@@ -159,11 +171,14 @@ const hospitals = (function() {
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
+                                circles.push(circle)
                             });
                         });
                     });
             });
             document.querySelector('.payment').addEventListener('click', e => {
+                if (circles.length > 0)
+                circles.forEach(c => c.setMap(null));
                 selectedField = e.target.value;
                 fetch('/hospitals/payment')
                     .then(res => res.json())
@@ -183,11 +198,14 @@ const hospitals = (function() {
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
+                                circles.push(circle)
                             });
                         });
                     });
             });
             document.querySelector('.gender').addEventListener('click', e => {
+                if (circles.length > 0)
+                circles.forEach(c => c.setMap(null));
                 selectedField = e.target.value;
                 fetch('/hospitals/gender')
                     .then(res => res.json())
@@ -207,11 +225,14 @@ const hospitals = (function() {
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
+                                circles.push(circle)
                             });
                         });
                     });
             });
             document.querySelector('.patients').addEventListener('click', e => {
+                if (circles.length > 0)
+                circles.forEach(c => c.setMap(null));
                 selectedField = e.target.value;
                 fetch('/hospitals/gender')
                     .then(res => res.json())
@@ -231,11 +252,14 @@ const hospitals = (function() {
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
+                                circles.push(circle)
                             });
                         });
                     });
             });
             document.querySelector('.charges').addEventListener('click', e => {
+                if (circles.length > 0)
+                circles.forEach(c => c.setMap(null));
                 selectedField = e.target.value;
                 fetch('/hospitals/charges')
                     .then(res => res.json())
@@ -251,6 +275,7 @@ const hospitals = (function() {
                                     map: map,
                                     center: {lat: entry.latitude, lng: entry.longitude},
                                 });
+                                circles.push(circle)
                             });
                         });
                     });
