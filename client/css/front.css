@@ -15,7 +15,7 @@ a {
     display: inline-block;
     border-radius: 50%;
   }
-.btn {
+.next {
     display: inline-block;
     width: 3em;
     height: 3em;
@@ -23,12 +23,13 @@ a {
     border-radius: 50%;
     margin-left: 0.75em;
     padding: 0px;
+    cursor: pointer;
+    background: none;
   }
   
-  .btn:after {
+  .next:after {
     content: '';
     display: inline-block;
-    margin-top: 0.6em;
     width: 1em;
     height: 1em;
     border-top: 0.3em solid white;
@@ -38,11 +39,11 @@ a {
     transform: rotate(135deg);
   }
 
-  a:hover .btn{
+  next:hover {
     border: 0.3em solid #ff4172;
   }
   
-  a:hover .btn:after{
+  next:hover:after{
     border-top: 0.3em solid#ff4172;
     border-right: 0.3em solid#ff4172;
   }
@@ -51,9 +52,4 @@ a {
     color: #536ade;
   }
 
-  .container {
-      background-image:url("/img/rplot3.png");
-      background-repeat: none; 
-      background-size: 100% 100%
-
-  }
+  

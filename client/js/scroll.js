@@ -14,7 +14,7 @@ $(function(){
     $(window).bind('scroll',upPos);
     
     //Move on click:
-    $('#arrow a').click(function(e){
+    $('.next').click(function(e){
         if ($(this).hasClass('next') && pagePositon+1 <= pageMaxPosition) {
             pagePositon++;
             $('html, body').stop().animate({ 
