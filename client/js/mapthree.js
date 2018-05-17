@@ -6,33 +6,66 @@ const taxi = (function() {
     ];
 
 
-    const prop = s => d => {
-        return d[s];
-    };
+    let trips = [];
+    
+        //Function to calculate the distance between the dropoff coordinates and the hospital center
+    const distance = (lat, lng, lat0, lng0) => {
+        const deglen = 110.25;
+        let x = lat - lat0;
+        let y = (lng - lng0) * Math.cos(lat0);
+        return deglen * Math.sqrt(x * x + y * y);
+    }
 
     const attachEvents = map => {
-                fetch('/taxi')
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                        data.forEach(entry => {
-                            console.log(entry)
+        console.log(geoJson);
+        let state = [];
 
-                                const coord= [
-                                    {lat: entry.pickup_latitude, lng: entry.pickup_longitude},
-                                    {lat: entry.dropoff_latitude, lng: entry.dropoff_longitude}
-                                ]
-                                let path = new google.maps.Polyline({
-                                    strokeColor: 'white',
-                                    strokeWeight: .1,
-                                    map: map,
-                                    path: coord, 
-                                    geodesic: true,
-                                    strokeOpacity: 1.0
-                                });
+        fetch('/taxi')
+            .then(res => res.json())
+            .then(data => {
+                state = data;
+            });
+
+        geoJson.features.forEach(hos => {
+            let circle = new google.maps.Circle({                                 
+                fillColor: '#f768a1',
+                fillOpacity: .5,
+                radius: 1000,
+                strokeColor: 'white',
+                strokeWeight: .4,
+                map: map,
+                center: {lat : hos.properties.latitude, lng : hos.properties.longitude}
+            });
+
+            circle.addListener('mouseover', _ => {
+                if (trips.length > 0)
+                    trips.forEach(c => c.setMap(null));
+
+                state.forEach(entry => {
+                    const tLat = entry.dropoff_latitude.toFixed(2);
+                    const tLng = entry.dropoff_longitude.toFixed(2);
+                    const cLat = circle.center.lat().toFixed(2);
+                    const cLng = circle.center.lng().toFixed(2);
+
+                    const temp = distance(tLat, tLng, cLat, cLng);
+                    if (temp < 1) {
+                        const coord= [
+                            {lat: entry.pickup_latitude, lng: entry.pickup_longitude},
+                            {lat: entry.dropoff_latitude, lng: entry.dropoff_longitude}
+                        ]
+                        let path = new google.maps.Polyline({
+                            strokeColor: 'white',
+                            strokeWeight: .75,
+                            map: map,
+                            path: coord, 
+                            geodesic: true,
+                            strokeOpacity: 1
                         });
-                    });
-
+                        trips.push(path);
+                    }
+                });
+            });
+        });
     };
     
 

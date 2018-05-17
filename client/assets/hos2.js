@@ -1,4 +1,4 @@
-const geoJson={
+const geoJson = {
   "type": "FeatureCollection",
   "features": [
     {
@@ -882,4 +882,4 @@ const geoJson={
       }
     }
   ]
-}
+};
