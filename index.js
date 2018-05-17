@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/get/:geoid', (req, res) => {
-    connection.query('SELECT * FROM ucfnssa.blocks2 WHERE tract=' + req.params.geoid + ';', function (error, results, fields) {
+    connection.query('SELECT * FROM blocks2 WHERE tract=' + req.params.geoid + ';', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -40,7 +40,7 @@ app.get('/get/:geoid', (req, res) => {
  * CENSUS ENDPOINT             *
  ******************************/
 app.get('/census', (req, res) => {
-    connection.query('SELECT * FROM ucfnssa.blocks2;', function (error, results, fields) {
+    connection.query('SELECT * FROM blocks2;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -51,7 +51,7 @@ app.get('/census', (req, res) => {
 
 app.get('/census/population', (req, res) => {
 
-    connection.query('SELECT TotalPop, Men, Women, Tract FROM ucfnssa.blocks2;', function (error, results, fields) {
+    connection.query('SELECT TotalPop, Men, Women, Tract FROM blocks2;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -62,7 +62,7 @@ app.get('/census/population', (req, res) => {
 
 app.get('/census/ethnicity', (req, res) => {
 
-    connection.query('SELECT Hispanic, White, Black, Asian, Native, Tract FROM ucfnssa.blocks2;', function (error, results, fields) {
+    connection.query('SELECT Hispanic, White, Black, Asian, Native, Tract FROM blocks2;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -74,7 +74,7 @@ app.get('/census/ethnicity', (req, res) => {
 
 app.get('/census/income', (req, res) => {
 
-    connection.query('SELECT Income, Tract FROM ucfnssa.blocks2;', function (error, results, fields) {
+    connection.query('SELECT Income, Tract FROM blocks2;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -85,7 +85,7 @@ app.get('/census/income', (req, res) => {
 });
 
 app.get('/census/unemployment', (req, res) => {
-    connection.query('SELECT Unemployment, Tract FROM ucfnssa.blocks2;', function (error, results, fields) {
+    connection.query('SELECT Unemployment, Tract FROM blocks2;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -99,7 +99,7 @@ app.get('/census/unemployment', (req, res) => {
  * TAXI                        *
  ******************************/
 app.get('/taxi', (req, res) => {
-    connection.query('SELECT * FROM ucfnssa.hospital_trips;', function (error, results, fields) {
+    connection.query('SELECT * FROM hospital_trips;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -113,7 +113,7 @@ app.get('/taxi', (req, res) => {
  ******************************/
 app.get('/hospitals', (req, res) => {
 
-    connection.query('SELECT * FROM ucfnssa.hospitals;', function (error, results, fields) {
+    connection.query('SELECT * FROM hospitals;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -124,7 +124,7 @@ app.get('/hospitals', (req, res) => {
 
 app.get('/hospitals/age', (req, res) => {
 
-    connection.query('SELECT per_0_17, per_18_29, per_30_49, per_50_69, per_70, latitude, longitude, fac_id FROM ucfnssa.hospitals;', function (error, results, fields) {
+    connection.query('SELECT per_0_17, per_18_29, per_30_49, per_50_69, per_70, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -135,7 +135,7 @@ app.get('/hospitals/age', (req, res) => {
 });
 app.get('/hospitals/severity', (req, res) => {
 
-    connection.query('SELECT per_extremeseverity, per_majorseverity, per_minorseverity, per_moderateseverity, latitude, longitude, fac_id FROM ucfnssa.hospitals;', function (error, results, fields) {
+    connection.query('SELECT per_extremeseverity, per_majorseverity, per_minorseverity, per_moderateseverity, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -147,7 +147,7 @@ app.get('/hospitals/severity', (req, res) => {
 
 app.get('/hospitals/race', (req, res) => {
 
-    connection.query('SELECT per_black, per_multiracial, per_otherrace, per_white, latitude, longitude, fac_id FROM ucfnssa.hospitals;', function (error, results, fields) {
+    connection.query('SELECT per_black, per_multiracial, per_otherrace, per_white, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -158,7 +158,7 @@ app.get('/hospitals/race', (req, res) => {
 });
 app.get('/hospitals/payment', (req, res) => {
 
-    connection.query('SELECT per_bluecross_blueshield, per_depofcorrections, federal_state_local_va, per_managedcare, per_medicaid, per_medicare, per_miscpayment, per_private, per_selfpayment, per_unknownpayment, latitude, longitude, fac_id FROM ucfnssa.hospitals;', function (error, results, fields) {
+    connection.query('SELECT per_bluecross_blueshield, per_depofcorrections, federal_state_local_va, per_managedcare, per_medicaid, per_medicare, per_miscpayment, per_private, per_selfpayment, per_unknownpayment, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -169,7 +169,7 @@ app.get('/hospitals/payment', (req, res) => {
 });
 app.get('/hospitals/gender', (req, res) => {
 
-    connection.query('SELECT per_male, per_females,  patients, latitude, longitude, fac_id FROM ucfnssa.hospitals;', function (error, results, fields) {
+    connection.query('SELECT per_male, per_females,  patients, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -180,7 +180,7 @@ app.get('/hospitals/gender', (req, res) => {
 });
 app.get('/hospitals/ethnicity', (req, res) => {
 
-    connection.query('SELECT per_hispanic, per_nonHispanic,  per_multi_ethnic, per_unknown, latitude, longitude, fac_id FROM ucfnssa.hospitals;', function (error, results, fields) {
+    connection.query('SELECT per_hispanic, per_nonHispanic,  per_multi_ethnic, per_unknown, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
@@ -192,7 +192,7 @@ app.get('/hospitals/ethnicity', (req, res) => {
 
 app.get('/hospitals/charges', (req, res) => {
 
-    connection.query('SELECT total_charges, latitude, longitude  FROM ucfnssa.hospitals;', function (error, results, fields) {
+    connection.query('SELECT total_charges, latitude, longitude  FROM hospitals;', function (error, results, fields) {
         if (error) {
             console.log(error);
         }
