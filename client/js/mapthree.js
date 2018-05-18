@@ -275,4 +275,3 @@ const taxi = (function() {
 })();
 
 taxi.init();
-
