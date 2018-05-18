@@ -57,11 +57,11 @@ const taxi = (function() {
                         ]
                         let path = new google.maps.Polyline({
                             strokeColor: '#323545',
-                            strokeWeight: .75,
+                            strokeWeight: .4,
                             map: map,
                             path: coord, 
                             geodesic: true,
-                            strokeOpacity: 1
+                            strokeOpacity: 1,
                         });
                         trips.push(path);
                     }
