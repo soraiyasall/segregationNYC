@@ -476,7 +476,8 @@ const hospitals = (function() {
             });
 
             map.data.addListener('mouseover', function(e) {
-                fetch('/get/' + e.feature.f.geoid)
+                console.log(e)
+                fetch('/hospitals' + e.feature.f.geoid)
                     .then(res => res.json())
                     .then(data => {
                         const container = document.getElementById('popup4');
