@@ -56,13 +56,8 @@ const taxi = (function() {
                             {lat: entry.dropoff_latitude, lng: entry.dropoff_longitude}
                         ]
                         let path = new google.maps.Polyline({
-<<<<<<< HEAD
                             strokeColor: '#323545',
                             strokeWeight: .75,
-=======
-                            strokeColor: 'white',
-                            strokeWeight: .5,
->>>>>>> ca3d7d7dc799446a1e553732b96d0e1cbfec5fb2
                             map: map,
                             path: coord, 
                             geodesic: true,

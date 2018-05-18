@@ -387,7 +387,11 @@ census.init();
           tooltip: {
             textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
           legend: {
-          textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}}
+          textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
+          pieSliceTextStyle:{
+            textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color:'#b1bbec'}
+            }
+
         };
     
       // Display the chart inside the <div> element with id="piechart"
