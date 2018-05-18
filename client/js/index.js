@@ -103,7 +103,7 @@ const census = (function() {
                             });
                         });
                 });
-            });
+            });    
     };
     const getBreaks = (type)=>{
         if (type === 'Men' || type === 'Women' || type === 'Asian' ||type === 'White' || type ==='Black' || type === 'Hispanic'){
@@ -322,6 +322,7 @@ const census = (function() {
                     strokeColor: '#ccc',
                 }
             });
+
             map.data.addListener('mouseover', function(e) {
                 fetch('/get/' + e.feature.f.geoid)
                     .then(res => res.json())
@@ -337,19 +338,36 @@ const census = (function() {
                             </ul>`; 
                         inner.innerHTML = content;
                         container.className = 'show';        
-                    })
+                })
             });
-               
+
             map.data.addListener('mouseout', function(e) {
-                const container = document.getElementById('popup');
+                const container = document.getElementById('popup2');
                 container.className = 'hide';
             });
 
+            map.data.addListener('mouseout', function(e) {
+                const container = document.getElementById('popup');
+                const container2 = document.getElementById('popup2');
+                container.className = 'hide';
+                container.className2 = 'hide';
 
+            });
+
+            geoJson2.features.forEach(hos => {
+                let circle = new google.maps.Circle({                                 
+                    fillColor: '#536ade',
+                    fillOpacity: 1,
+                    radius: 250,
+                    strokeColor: 'white',
+                    strokeWeight: .4,
+                    zIndex: 10.0,
+                    map: map,
+                    center: {lat : hos.properties.latitude, lng : hos.properties.longitude}
+                });
+            });
             attachEvents(map);
         };
-
-
         window.initMap = initMap;
     }
 
@@ -361,7 +379,7 @@ const census = (function() {
         init,
     }
 })();
-
+  
 census.init();
 
 	// Load google charts

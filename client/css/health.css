@@ -189,6 +189,28 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+#popup2 {
+  position: absolute;
+  top: 100px;
+  left: 10px;
+  width: 15em;
+  background-color: #fff8;
+  height: 7em;
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: #2f2fa2;
+}
+
+.content2 {
+  width: 100%;
+  height: 100%;
+  padding: .5em;
+  position: absolute;
+  top: 50%;
+  line-height: 1.5;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .show {
   visibility: visible;
