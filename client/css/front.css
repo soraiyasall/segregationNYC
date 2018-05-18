@@ -49,7 +49,7 @@ a {
 .next {
     width: 4em;
     height: 4em;
-    border: 0.4em solid white;
+    border: 0.4em solid #536ade;
     border-radius: 50%;
     padding: 0px;
     cursor: pointer;
@@ -57,17 +57,26 @@ a {
     display: block;
     margin: auto;
   }
+
+.two .next {
+    border: 0.4em solid white;
+}
   
   .next:after {
     content: '';
     display: inline-block;
     width: 1.3em;
     height: 1.3em;
-    border-top: 0.4em solid white;
-    border-right: 0.4em solid white;
+    border-top: 0.4em solid #536ade;
+    border-right: 0.4em solid #536ade;
     -moz-transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
+  }
+
+  .two .next:after {
+    border-top: 0.4em solid white;
+    border-right: 0.4em solid white;
   }
 
   .next:hover {
@@ -83,6 +92,16 @@ a {
     height: 200px;
     width: 200px;
     margin: 0 auto;
+  }
+
+  a.btn1 {
+    border: 2px solid white;
+    background-color: #ff4172;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 3px;
+    text-decoration: none;
   }
 
   footer {
