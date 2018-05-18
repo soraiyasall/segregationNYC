@@ -290,9 +290,9 @@ footer {
   position: absolute;
   bottom: 5px;
   right: 5px;
-  width: 33%;
+  width: 40%;
   background: white;
-  padding: .5em .5em 1.5em;
+  padding: .5em 1em 1.5em;
 }
 
 .legend li {
@@ -303,6 +303,14 @@ footer {
 .text {
   position: absolute;
   bottom: .25em;
+}
+
+li .text {
+  margin-left: -.75em;
+}
+
+li:last-of-type .text {
+  margin-left: -1.25em;
 }
 
 .color {
