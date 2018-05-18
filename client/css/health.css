@@ -59,7 +59,7 @@ img {
 
 }
 .data-info .container {
-  padding: 1em;
+  padding: 0.3em;
   color:#323545;
 }
 
@@ -199,7 +199,45 @@ body {
   visibility: hidden;
   opacity: 0;
 }
+.container2 {
+  display: flex;
+}
 
+
+.columns {
+  flex: 1;
+  position: relative;
+}
+
+.columns-one {
+  order: 3;
+  width: 100%;
+}
+.columns-two {
+  order: 1;
+  width: 100%;
+}
+.columns-three {
+  order: 4;
+  width: 100%;
+}
+.columns-four {
+  order: 2;
+  width: 100%;
+}
+.columns-five {
+  order: 5;
+  width: 100%;
+}
+
+.chart {
+ width: 100%;
+}
+
+.filterField2 {
+  padding: 2em;
+
+}
 .filterField{
   top: 10;
   position: absolute;
@@ -225,11 +263,13 @@ padding: 0.3em;
   font-weight: 600;
 }
 
+
+
 .nextsection {
   overflow: hidden;
   padding: 10px;
   background-color: #b1bbec80;
-  position: relative;
+  position: relative; 
 
 }
 .nextinfo {
@@ -269,9 +309,9 @@ padding: 0.3em;
 
 footer {
   overflow: hidden;
-    background-color: #323545;
-    height: 40px;
-    position: relative;
+  background-color: #323545;
+  height: 40px;
+  position: relative;
 }
 
  footer p {
@@ -337,12 +377,7 @@ li:last-of-type .text {
   background: #feebe2;
 }
 
-.chart {
-  max-width: 333px;
-  max-height: 333px;
-  display: inline-block;
-  vertical-align: top;
-}
+
 
 .slidecontainer {
   width: 100%; /* Width of the outside container */
@@ -363,3 +398,21 @@ li:last-of-type .text {
   font-family: 'Raleway', sans-serif;
 
 }
+
+.map1infobox {
+  border: 4px solid white;
+  color: white;
+  padding: 5rem 5rem;
+  border-radius: 3px;
+}
+
+.map3infobox {
+  border: 4px solid white;
+  color: white;
+  padding: 7rem 7rem;
+  border-radius: 3px;
+}
+
+
+/* Map two */
+

@@ -48,12 +48,16 @@
 
         var options = {
             title: container.split('_').filter(w => w !== 'chart').join(' '),
-            hAxis: {title: container, minValue: 0, maxValue: 100},
-            vAxis: {title: value, minValue: 0, maxValue: 100},
+            hAxis: {title: container, minValue: 0, maxValue: 100, textStyle:{ fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
+            vAxis: {title: value, minValue: 0, maxValue: 100, textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
             legend: 'none',
-            width: 333,
-            height: 333,
+            colors:['#ff4172'],
+            tooltip: {
+                textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
+             
+            titleTextStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}
         };
+
 
         var chart = new google.visualization.ScatterChart(document.getElementById(container));
 
