@@ -48,13 +48,13 @@
 
         var options = {
             title: container.split('_').filter(w => w !== 'chart').join(' '),
-            hAxis: {title: container, minValue: 0, maxValue: 100, textStyle:{ fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
-            vAxis: {title: value, minValue: 0, maxValue: 100, textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
+            hAxis: {title: container, minValue: 0, maxValue: 100, gridlines: {color:'#A9A9A9'}, textStyle:{ fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
+            vAxis: {title: value, minValue: 0, maxValue: 100, gridlines: {color:'#A9A9A9'}, textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
             legend: 'none',
             colors:['#ff4172'],
             tooltip: {
                 textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
-             
+            backgroundColor: {'fill':'transparent'},
             titleTextStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}
         };
 
