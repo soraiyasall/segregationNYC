@@ -17,7 +17,7 @@ const taxi = (function() {
     }
 
     const attachEvents = map => {
-        console.log(geoJson);
+        console.log(geoJson2);
         let state = [];
 
         fetch('/taxi')
@@ -26,7 +26,7 @@ const taxi = (function() {
                 state = data;
             });
 
-        geoJson.features.forEach(hos => {
+        geoJson2.features.forEach(hos => {
             let circle = new google.maps.Circle({                                 
                 fillColor: '#f768a1',
                 fillOpacity: .5,
