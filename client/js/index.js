@@ -147,68 +147,14 @@ const census = (function() {
                 disableDefaultUI: true,
                 styles:[
                     {
-                        "featureType": "all",
-                        "elementType": "labels.text.fill",
+                        "featureType": "water",
+                        "elementType": "geometry",
                         "stylers": [
                             {
-                                "saturation": 36
-                            },
-                            {
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 40
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "all",
-                        "elementType": "labels.text.stroke",
-                        "stylers": [
-                            {
-                                "visibility": "on"
-                            },
-                            {
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 16
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "all",
-                        "elementType": "labels.icon",
-                        "stylers": [
-                            {
-                                "visibility": "off"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "administrative",
-                        "elementType": "geometry.fill",
-                        "stylers": [
-                            {
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 20
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "administrative",
-                        "elementType": "geometry.stroke",
-                        "stylers": [
-                            {
-                                "color": "#000000"
+                                "color": "#ffffff"
                             },
                             {
                                 "lightness": 17
-                            },
-                            {
-                                "weight": 1.2
                             }
                         ]
                     },
@@ -217,22 +163,10 @@ const census = (function() {
                         "elementType": "geometry",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "##f4f4f4" 
                             },
                             {
-                                "lightness": 30
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "poi",
-                        "elementType": "geometry",
-                        "stylers": [
-                            {
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 30
+                                "lightness": 20
                             }
                         ]
                     },
@@ -241,7 +175,7 @@ const census = (function() {
                         "elementType": "geometry.fill",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#dedede"
                             },
                             {
                                 "lightness": 17
@@ -253,7 +187,7 @@ const census = (function() {
                         "elementType": "geometry.stroke",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#dedede"
                             },
                             {
                                 "lightness": 29
@@ -268,7 +202,7 @@ const census = (function() {
                         "elementType": "geometry",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#dedede"
                             },
                             {
                                 "lightness": 18
@@ -280,10 +214,58 @@ const census = (function() {
                         "elementType": "geometry",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#ffffff"
                             },
                             {
                                 "lightness": 16
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#f1f1f1"
+                            },
+                            {
+                                "lightness": 21
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 16
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "saturation": 36
+                            },
+                            {
+                                "color": "#333333"
+                            },
+                            {
+                                "lightness": 40
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
                             }
                         ]
                     },
@@ -292,7 +274,7 @@ const census = (function() {
                         "elementType": "geometry",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#f2f2f2"
                             },
                             {
                                 "lightness": 19
@@ -300,19 +282,35 @@ const census = (function() {
                         ]
                     },
                     {
-                        "featureType": "water",
-                        "elementType": "geometry",
+                        "featureType": "administrative",
+                        "elementType": "geometry.fill",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#fefefe"
+                            },
+                            {
+                                "lightness": 20
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#fefefe"
                             },
                             {
                                 "lightness": 17
+                            },
+                            {
+                                "weight": 1.2
                             }
                         ]
                     }
-                ]           
+                ]
             });
+
 
             map.data.addGeoJson(geoJson);
 
@@ -382,7 +380,15 @@ census.init();
     ], false);
     
       // Optional; add a title and set the width and height of the chart
-      var options = {'width':400, 'height':300, colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'], backgroundColor: {'fill': '#2f2fa2', 'opacity': 100}};
+      var options = {
+          colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'], 
+          'chartArea': {'width': '100%', 'height': '80%'},
+          backgroundColor: {'fill':'transparent'},
+          tooltip: {
+            textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
+          legend: {
+          textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}}
+        };
     
       // Display the chart inside the <div> element with id="piechart"
       var chart = new google.visualization.PieChart(document.getElementById('piechart'));

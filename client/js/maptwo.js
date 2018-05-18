@@ -299,68 +299,14 @@ const hospitals = (function() {
                 disableDefaultUI: true,
                 styles:[
                     {
-                        "featureType": "all",
-                        "elementType": "labels.text.fill",
+                        "featureType": "water",
+                        "elementType": "geometry",
                         "stylers": [
                             {
-                                "saturation": 36
-                            },
-                            {
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 40
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "all",
-                        "elementType": "labels.text.stroke",
-                        "stylers": [
-                            {
-                                "visibility": "on"
-                            },
-                            {
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 16
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "all",
-                        "elementType": "labels.icon",
-                        "stylers": [
-                            {
-                                "visibility": "off"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "administrative",
-                        "elementType": "geometry.fill",
-                        "stylers": [
-                            {
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 20
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "administrative",
-                        "elementType": "geometry.stroke",
-                        "stylers": [
-                            {
-                                "color": "#000000"
+                                "color": "#ffffff"
                             },
                             {
                                 "lightness": 17
-                            },
-                            {
-                                "weight": 1.2
                             }
                         ]
                     },
@@ -369,22 +315,10 @@ const hospitals = (function() {
                         "elementType": "geometry",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "##f4f4f4" 
                             },
                             {
-                                "lightness": 30
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "poi",
-                        "elementType": "geometry",
-                        "stylers": [
-                            {
-                                "color": "#000000"
-                            },
-                            {
-                                "lightness": 30
+                                "lightness": 20
                             }
                         ]
                     },
@@ -393,7 +327,7 @@ const hospitals = (function() {
                         "elementType": "geometry.fill",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#dedede"
                             },
                             {
                                 "lightness": 17
@@ -405,7 +339,7 @@ const hospitals = (function() {
                         "elementType": "geometry.stroke",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#dedede"
                             },
                             {
                                 "lightness": 29
@@ -420,7 +354,7 @@ const hospitals = (function() {
                         "elementType": "geometry",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#dedede"
                             },
                             {
                                 "lightness": 18
@@ -432,10 +366,58 @@ const hospitals = (function() {
                         "elementType": "geometry",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#ffffff"
                             },
                             {
                                 "lightness": 16
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#f1f1f1"
+                            },
+                            {
+                                "lightness": 21
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#ffffff"
+                            },
+                            {
+                                "lightness": 16
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "saturation": 36
+                            },
+                            {
+                                "color": "#333333"
+                            },
+                            {
+                                "lightness": 40
+                            }
+                        ]
+                    },
+                    {
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
                             }
                         ]
                     },
@@ -444,7 +426,7 @@ const hospitals = (function() {
                         "elementType": "geometry",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#f2f2f2"
                             },
                             {
                                 "lightness": 19
@@ -452,19 +434,35 @@ const hospitals = (function() {
                         ]
                     },
                     {
-                        "featureType": "water",
-                        "elementType": "geometry",
+                        "featureType": "administrative",
+                        "elementType": "geometry.fill",
                         "stylers": [
                             {
-                                "color": "#000000"
+                                "color": "#fefefe"
+                            },
+                            {
+                                "lightness": 20
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#fefefe"
                             },
                             {
                                 "lightness": 17
+                            },
+                            {
+                                "weight": 1.2
                             }
                         ]
                     }
-                ]           
+                ]
             });
+
 
 
             attachEvents(map);
