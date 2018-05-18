@@ -475,6 +475,30 @@ const hospitals = (function() {
                 ]
             });
 
+            map.data.addListener('mouseover', function(e) {
+                fetch('/get/' + e.feature.f.geoid)
+                    .then(res => res.json())
+                    .then(data => {
+                        const container = document.getElementById('popup4');
+                        const inner = document.querySelector('.content4');
+                        const content4 = `
+                            <ul>
+                                <li><span class="title">Census Tract:</span> ${e.feature.f.geoid}</li>
+                                <li><span class="title">Borough Name:</span> ${data.Borough}</li>
+                                <li><span class="title">Total Pop:</span> ${data.TotalPop}</li>
+                                <li><span class="title">${selectedField}:</span> ${data[selectedField]}</li>
+                            </ul>`; 
+                        inner.innerHTML = content4;
+                        container.className = 'show';        
+                })
+            });
+
+
+            map.data.addListener('mouseout', function(e) {
+                const container = document.getElementById('popup4');
+                container.className = 'hide';
+
+            });
 
 
             attachEvents(map);
