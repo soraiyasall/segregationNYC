@@ -66,6 +66,18 @@ const hospitals = (function() {
     let circles = [];
 
     const attachEvents = map => {
+        geoJson2.features.forEach(hos => {
+            let circle = new google.maps.Circle({                                 
+                fillColor: '#f768a1',
+                fillOpacity: 1,
+                radius: 250,
+                strokeColor: 'white',
+                strokeWeight: .4,
+                map: map,
+                center: {lat : hos.properties.latitude, lng : hos.properties.longitude}
+            });
+        });
+
         document.querySelector('.severity').addEventListener('click', e => {
                 if (circles.length > 0)
                     circles.forEach(c => c.setMap(null));
@@ -76,7 +88,7 @@ const hospitals = (function() {
                     .then(data => {
                         const tract = data.filter(item => {
                             const id = item.fac_id;
-                            return geoJson.features.find(t => t.properties.id === id);
+                            return geoJson2.features.find(t => t.properties.id === id);
                         });
                         tract.forEach(entry => {
                             severity.forEach((variable, i) => {
@@ -105,7 +117,7 @@ const hospitals = (function() {
                     .then(data => {
                         const tract = data.filter(item => {
                             const id = item.fac_id;
-                            return geoJson.features.find(t => t.properties.id === id);
+                            return geoJson2.features.find(t => t.properties.id === id);
                         });
                         tract.forEach(entry => {
                             age.forEach((variable, i)=> {
@@ -133,7 +145,7 @@ const hospitals = (function() {
                     .then(data => {
                         const tract = data.filter(item => {
                             const id = item.fac_id;
-                            return geoJson.features.find(t => t.properties.id === id);
+                            return geoJson2.features.find(t => t.properties.id === id);
                         });
                         tract.forEach(entry => {
                             race.forEach((variable, i) => {
@@ -161,7 +173,7 @@ const hospitals = (function() {
                     .then(data => {
                         const tract = data.filter(item => {
                             const id = item.fac_id;
-                            return geoJson.features.find(t => t.properties.id === id);
+                            return geoJson2.features.find(t => t.properties.id === id);
                         });
                         tract.forEach(entry => {
                             ethnicity.forEach((variable, i) => {
@@ -189,7 +201,7 @@ const hospitals = (function() {
                     .then(data => {
                         const tract = data.filter(item => {
                             const id = item.fac_id;
-                            return geoJson.features.find(t => t.properties.id === id);
+                            return geoJson2.features.find(t => t.properties.id === id);
                         });
                         tract.forEach(entry => {
                             payment.forEach((variable, i) => {
@@ -217,7 +229,7 @@ const hospitals = (function() {
                     .then(data => {
                         const tract = data.filter(item => {
                             const id = item.fac_id;
-                            return geoJson.features.find(t => t.properties.id === id);
+                            return geoJson2.features.find(t => t.properties.id === id);
                         });
                         tract.forEach(entry => {
                             gender.forEach((variable, i) => {
@@ -245,7 +257,7 @@ const hospitals = (function() {
                     .then(data => {
                         const tract = data.filter(item => {
                             const id = item.fac_id;
-                            return geoJson.features.find(t => t.properties.id === id);
+                            return geoJson2.features.find(t => t.properties.id === id);
                         });
                         tract.forEach(entry => {
                             patients.forEach((variable, i) => {
@@ -266,7 +278,7 @@ const hospitals = (function() {
             document.querySelector('.charges').addEventListener('click', e => {
                 if (circles.length > 0)
                     circles.forEach(c => c.setMap(null));
-                    
+
                 selectedField = e.target.value;
                 fetch('/hospitals/charges')
                     .then(res => res.json())
