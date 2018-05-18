@@ -97,7 +97,8 @@ const hospitals = (function() {
             });
         document.querySelector('.age').addEventListener('click', e => {
                 if (circles.length > 0)
-                        circles.forEach(c => c.setMap(null));
+                    circles.forEach(c => c.setMap(null));
+
                 selectedField = e.target.value;
                 fetch('/hospitals/age')
                     .then(res => res.json())
@@ -124,7 +125,8 @@ const hospitals = (function() {
             });
             document.querySelector('.race').addEventListener('click', e => {
                 if (circles.length > 0)
-                circles.forEach(c => c.setMap(null));
+                    circles.forEach(c => c.setMap(null));
+
                 selectedField = e.target.value;
                 fetch('/hospitals/race')
                     .then(res => res.json())
@@ -151,7 +153,8 @@ const hospitals = (function() {
             });
             document.querySelector('.ethnicity').addEventListener('click', e => {
                 if (circles.length > 0)
-                circles.forEach(c => c.setMap(null));
+                    circles.forEach(c => c.setMap(null));
+
                 selectedField = e.target.value;
                 fetch('/hospitals/ethnicity')
                     .then(res => res.json())
@@ -178,7 +181,8 @@ const hospitals = (function() {
             });
             document.querySelector('.payment').addEventListener('click', e => {
                 if (circles.length > 0)
-                circles.forEach(c => c.setMap(null));
+                    circles.forEach(c => c.setMap(null));
+
                 selectedField = e.target.value;
                 fetch('/hospitals/payment')
                     .then(res => res.json())
@@ -205,7 +209,8 @@ const hospitals = (function() {
             });
             document.querySelector('.gender').addEventListener('click', e => {
                 if (circles.length > 0)
-                circles.forEach(c => c.setMap(null));
+                    circles.forEach(c => c.setMap(null));
+
                 selectedField = e.target.value;
                 fetch('/hospitals/gender')
                     .then(res => res.json())
@@ -232,7 +237,8 @@ const hospitals = (function() {
             });
             document.querySelector('.patients').addEventListener('click', e => {
                 if (circles.length > 0)
-                circles.forEach(c => c.setMap(null));
+                    circles.forEach(c => c.setMap(null));
+
                 selectedField = e.target.value;
                 fetch('/hospitals/gender')
                     .then(res => res.json())
@@ -259,7 +265,8 @@ const hospitals = (function() {
             });
             document.querySelector('.charges').addEventListener('click', e => {
                 if (circles.length > 0)
-                circles.forEach(c => c.setMap(null));
+                    circles.forEach(c => c.setMap(null));
+                    
                 selectedField = e.target.value;
                 fetch('/hospitals/charges')
                     .then(res => res.json())
