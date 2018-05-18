@@ -388,9 +388,7 @@ census.init();
             textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
           legend: {
           textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
-          pieSliceTextStyle:{
-            textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color:'#b1bbec'}
-            }
+          pieSliceTextStyle:{fontName:'Raleway, sans-serif', fontSize: 12, color:'white'}
 
         };
     
