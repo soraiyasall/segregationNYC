@@ -603,7 +603,9 @@ hospitals.init();
           textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
         legend: {
         position:'none'},
-        vAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
+        vAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}},
+        hAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}},
+
 
       };
 
@@ -621,7 +623,9 @@ hospitals.init();
         legend: {
         position:'none'},
         bar: {groupWidth: "75%"},
-        vAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
+        vAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}},
+        hAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}},
+
 
         };
 

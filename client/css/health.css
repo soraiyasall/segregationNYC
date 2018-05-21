@@ -4,14 +4,15 @@
 }
 
 body {
-  color: #323545;
+  color: white;
   font-family: 'Raleway', sans-serif;
   margin: 0 auto;
+  height: 100vh;
+
 }
 
 h1, h2, h3, h4, h5 {
   font-family: 'PT Sans', sans-serif;
-  color: #536ade;
 }
 
 p {
@@ -31,13 +32,49 @@ a {
   height: 40px;
   display: block;
   z-index: 1;
+  border: 2px solid;
+  padding: 4px;
+  border-radius: 100%;
+  background-color: #ff4172;
 }
+
+.mapicon:hover {
+  border: 2px solid #536ade;
+  background-color:  #536ade;
+}
+
 
 img {
   max-width: 100%
 }
 
-.btn  {
+.titlebox{
+  height: 70px;
+  background-color: #323545;
+  position: relative;    
+}
+
+.titlebox h1 {
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+margin: 0 auto;
+text-align: center;
+font-family: 'Open Sans', sans-serif;
+color: white;
+text-decoration: none;
+text-transform: uppercase;
+font-size: 40px;
+font-weight: 800;
+letter-spacing: px;
+line-height: 1;
+text-shadow: #536ade 3px 2px 0;
+/* font-size: 30px; */
+width: 100%;
+}
+
+/* .btn  {
   color: #ffffff;
   border-radius: 8px;
   background-color: #F64C72;
@@ -51,12 +88,14 @@ img {
 .btn:hover { 
     background-color: white;
     color: #F64C72;
-}
+} */
 
 .wrapper {
-  background-color: #b1bbec88;
+  background-color: #323545;
   overflow: hidden;
 }
+
+/* Map 1 and 3 */
 
 .data-info{
   padding-top: 0.5em;
@@ -69,7 +108,7 @@ img {
 }
 .data-info .container {
   padding: 0.3em;
-  color:#323545;
+  color:white;
 }
 
 .data-info .container h3 {
@@ -101,6 +140,7 @@ img {
     padding: 0 1em;
     overflow: hidden;
    }
+
 .column-center{ 
   display: inline-block; 
   width: 33.333%; 
@@ -108,54 +148,15 @@ img {
   overflow: hidden;
 }
 
-
-#map {
+/* Maps */
+/* #map {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 100%;
   height: 60%;
-}
+} */
 
-
-h2 {
-  font-size: 14px;
-  line-height: 20px;
-  margin-bottom: 10px;
-}
-
-#console {
-  position: absolute;
-  width: 240px;
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: white;
-}
-
-
-.session {
-  margin-bottom: 20px;
-}
-
-.row {
-  height: 12px;
-  width: 100%;
-}
-
-.colors {
-  background: linear-gradient(to right, #2dc4b2, #3bb3c3, #669ec4, #8b88b6, #a2719b, #aa5e79);
-  margin-bottom: 5px;
-}
-
-.label {
-  width: 15%;
-  display: inline-block;
-  text-align: center;
-}
-
-body {
-  height: 100vh;
-}
 
 #map {
   position: static;
@@ -171,13 +172,20 @@ body {
   overflow: hidden;
 }
 
+
+/* h2 {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+} */
+
 #popup {
   position: absolute;
   top: 100px;
   left: 10px;
   width: 15em;
   background-color: #32354594;
-  height: 9em;
+  height: 10em;
   border: 1px solid;
   border-radius: 3px;
   border: none;
@@ -214,6 +222,70 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+/* Filter Fields */
+
+.filterField {
+display: block;
+top: 10;
+position: absolute;
+right: 10;
+background-color: #32354594;
+border-radius: 3px;
+color: white;
+overflow: hidden;
+}
+
+.filterField h3 {
+  text-align: center;
+    color: white;
+    padding: 0.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #323545;
+    margin: auto;
+}
+
+.filterField2 {
+  padding: 2em;
+
+}
+
+
+label {
+  display: flex;
+  text-align: center;
+  padding: 0.2em;
+}
+
+
+/* 
+#console {
+  position: absolute;
+  width: 240px;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: white;
+} */
+
+
+/* .session {
+  margin-bottom: 20px;
+} */
+
+/* .row {
+  height: 12px;
+  width: 100%;
+} */
+
+/* .colors {
+  background: linear-gradient(to right, #2dc4b2, #3bb3c3, #669ec4, #8b88b6, #a2719b, #aa5e79);
+  margin-bottom: 5px;
+} */
+
+
+
 
 .show {
   visibility: visible;
@@ -263,7 +335,15 @@ body {
   padding: 2em;
 
 }
-.filterField{
+
+/* 
+/* Filter Fields */
+/* .label {
+  width: 15%;
+  display: inline-block;
+  text-align: center;
+} */
+/* .filterField{
   top: 10;
   position: absolute;
   right: 10;
@@ -275,18 +355,19 @@ body {
 
 .filterField h3 {
   text-align: center;
-    color: #2f2fa2;
+    color: white;
     padding: 0.5em;
     font-weight: bold;
     text-transform: uppercase;
-    background-color: #b1bbec;
+    background-color: #323545;
     margin: auto;
 }
 
-.filterField label {
+.filterField 
+ {
 display: block;
 padding: 0.3em;
-}
+} */ 
 
 .title{
   font-weight: 600;
@@ -297,14 +378,14 @@ padding: 0.3em;
 .nextsection {
   overflow: hidden;
   padding: 10px;
-  background-color: #b1bbec80;
+  background-color:#323545;
   position: relative; 
 
 }
 .nextinfo {
   float: left;
   width: 50%;
-  color: #323545;
+  color: white;
   padding: 1em;
 }
 
@@ -336,22 +417,6 @@ padding: 0.3em;
   color: white;
 }
 
-footer {
-  overflow: hidden;
-  background-color: #323545;
-  height: 40px;
-  position: relative;
-}
-
- footer p {
-  color: white;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  text-align: center;
-}
 
 
 
@@ -415,14 +480,14 @@ li:last-of-type .text {
 }
 
 .box {
-  border: 4px solid white;
+  border-bottom: 2px solid white;
   color: white;
-  padding: 1rem 1rem;
   border-radius: 3px;
 }
 
 .box h3 {
-  color: #323545;
+  color: white;
+  margin: auto;
 }
 
 .piechart {
@@ -463,7 +528,7 @@ li:last-of-type .text {
 
 
 .filterField2 h3 {
-    color: #2f2fa2;
+    color:white;
     padding: 0.5em 0em;
     font-weight: bold;
     text-transform: uppercase;
@@ -480,7 +545,7 @@ li:last-of-type .text {
 }
 .contextinfo .container {
   padding: 0.3em;
-  color:#323545;
+  color:white;
 }
 
 .contextinfo .container h3 {
@@ -516,3 +581,28 @@ li:last-of-type .text {
     line-height: 25px;
     list-style: decimal;
   }
+
+ 
+
+/* Footer */
+
+footer {
+  overflow: hidden;
+  background-color: #536ade;
+  height: 40px;
+  position: relative;
+}
+
+ footer p {
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+}
