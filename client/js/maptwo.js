@@ -125,7 +125,9 @@ const hospitals = (function() {
 			fetch('/hospitals/severity')
 				.then(res => res.json())
 				.then(data => {
-					const tract = data.filter(crossRef);
+                    const tract = data.filter(crossRef);
+                    drawLegend(Object.keys(tract[0]).length - 3, severity);
+
 					tract.forEach(entry => {
 						severity.forEach(plotCircles(entry, map));
 					});
@@ -139,7 +141,10 @@ const hospitals = (function() {
 			fetch('/hospitals/age')
 				.then(res => res.json())
 				.then(data => {
-					const tract = data.filter(crossRef);
+                    const tract = data.filter(crossRef);
+                    
+                    drawLegend(Object.keys(tract[0]).length - 3, age);
+
 					tract.forEach(entry => {
 						age.forEach(plotCircles(entry, map));
 					});
@@ -170,7 +175,9 @@ const hospitals = (function() {
 			fetch('/hospitals/ethnicity')
 				.then(res => res.json())
 				.then(data => {
-					const tract = data.filter(crossRef);
+                    const tract = data.filter(crossRef);
+                    drawLegend(Object.keys(tract[0]).length - 3, ethnicity);
+
 					tract.forEach(entry => {
 						ethnicity.forEach(plotCircles(entry, map));
 					});
@@ -184,7 +191,9 @@ const hospitals = (function() {
 			fetch('/hospitals/payment')
 				.then(res => res.json())
 				.then(data => {
-					const tract = data.filter(crossRef);
+                    const tract = data.filter(crossRef);
+                    drawLegend(Object.keys(tract[0]).length - 3, payment);
+
 					tract.forEach(entry => {
 						payment.forEach(plotCircles(entry, map));
 					});
@@ -198,7 +207,9 @@ const hospitals = (function() {
 			fetch('/hospitals/gender')
 				.then(res => res.json())
 				.then(data => {
-					const tract = data.filter(crossRef);
+                    const tract = data.filter(crossRef);
+                    drawLegend(Object.keys(tract[0]).length - 3, gender);
+
 					tract.forEach(entry => {
 						gender.forEach(plotCircles(entry, map));
 					});
@@ -212,7 +223,8 @@ const hospitals = (function() {
 			fetch('/hospitals/gender')
 				.then(res => res.json())
 				.then(data => {
-					const tract = data.filter(crossRef);
+                    const tract = data.filter(crossRef);
+                    drawLegend(Object.keys(tract[0]).length - 3, patients);
 					tract.forEach(entry => {
 						patients.forEach((variable, i) => {
 							let circle = new google.maps.Circle({
