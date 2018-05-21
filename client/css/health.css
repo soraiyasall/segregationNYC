@@ -128,12 +128,24 @@ width: 100%;
   line-height: 25px;
 }
 
+.data-info .container ol {
+  padding: 1em;
+  line-height: 25px;
+  list-style: decimal;
+}
+
+
 .column-left { 
   float: left; 
   width: 33.3333%; 
   padding: 0 1em;
   overflow: hidden;
 }
+
+.title{
+  font-weight: 600;
+}
+
 .column-right{
    float: right;
     width: 33.3333%;
@@ -223,6 +235,10 @@ width: 100%;
   transform: translate(-50%, -50%);
 }
 
+.piechart {
+  font-family: 'Raleway', sans-serif;
+
+}
 
 /* Filter Fields */
 
@@ -251,6 +267,14 @@ overflow: hidden;
   padding: 2em;
 
 }
+
+.filterField2 h3 {
+  color:white;
+  padding: 0.5em 0em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 
 
 label {
@@ -327,51 +351,42 @@ label {
   width: 100%;
 }
 
+
+
+
+/* Charts */
+
+
+.contextinfo{
+  padding-top: 0.5em;
+}
+.contextinfo h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 10px;
+
+}
+.contextinfo .container {
+  padding: 0.3em;
+  color:white;
+}
+
+.contextinfo .container h3 {
+  text-align: center;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+.contextinfo .container p {
+  padding: 1em;
+  line-height: 25px;
+
+}
+
 .chart {
- width: 100%;
-}
+  width: 100%;
+ }
 
-.filterField2 {
-  padding: 2em;
-
-}
-
-/* 
-/* Filter Fields */
-/* .label {
-  width: 15%;
-  display: inline-block;
-  text-align: center;
-} */
-/* .filterField{
-  top: 10;
-  position: absolute;
-  right: 10;
-  background-color: #32354594;
-  border-radius: 3px;
-  color: white;
-  overflow: hidden;
-}
-
-.filterField h3 {
-  text-align: center;
-    color: white;
-    padding: 0.5em;
-    font-weight: bold;
-    text-transform: uppercase;
-    background-color: #323545;
-    margin: auto;
-}
-
-.filterField 
- {
-display: block;
-padding: 0.3em;
-} */ 
-
-.title{
-  font-weight: 600;
-}
 
 
 
@@ -527,38 +542,8 @@ li:last-of-type .text {
 
 
 
-.filterField2 h3 {
-    color:white;
-    padding: 0.5em 0em;
-    font-weight: bold;
-    text-transform: uppercase;
-}
 
-.contextinfo{
-  padding-top: 0.5em;
-}
-.contextinfo h1 {
-  text-align: center;
-  font-size: 2em;
-  margin-bottom: 10px;
 
-}
-.contextinfo .container {
-  padding: 0.3em;
-  color:white;
-}
-
-.contextinfo .container h3 {
-  text-align: center;
-  font-size: 1.2em;
-  text-transform: uppercase;
-}
-
-.contextinfo .container p {
-  padding: 1em;
-  line-height: 25px;
-
-}
 
 .column-left2 { 
   float: left; 
@@ -575,12 +560,6 @@ li:last-of-type .text {
     overflow: hidden;
 
    }
-
-   .data-info .container ol {
-    padding: 1em;
-    line-height: 25px;
-    list-style: decimal;
-  }
 
  
 
@@ -605,4 +584,8 @@ footer {
 
 footer a {
   color: white;
+}
+
+footer a:hover {
+  color: #ff4172;
 }
