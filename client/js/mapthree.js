@@ -66,7 +66,7 @@ const taxi = (function() {
                         trips.push(path);
                     }
                 });
-
+                console.log(hos.properties.facility_name, trips.length)
                 buildPopup(hos.properties.facility_name, trips.length);
             });
         });
@@ -76,8 +76,8 @@ const taxi = (function() {
         const container = document.getElementById('popup');
         const inner = document.querySelector('.content');
         const content = `
+            <p><span class="title">${hName}</span> </p>
             <ul>
-                <li><span class="title">Hospital name:</span> ${hName} </li>
                 <li><span class="title">Number of trips:</span> ${count}</li>
             </ul>`; 
         inner.innerHTML = content;
@@ -90,7 +90,7 @@ const taxi = (function() {
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
                 center: {lat: 40.7128, lng: -74.0060},
-                disableDefaultUI: true,
+                disableDefaultUI: false,
                 styles:[
                     {
                         "featureType": "water",

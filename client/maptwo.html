@@ -1,20 +1,16 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
 	<link rel="stylesheet" type="text/css" href="./css/health.css">
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Raleway" rel="stylesheet">
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-
-
 </head>
 <body>
-
+	<a class="mapicon" href="/mapthree.html"><img src="/img/map.svg"></a>
 	<div class="wrapper">
 			<div class="data-info">
 				<h1>NYC Demographic Info</h1>
-		</div>	
+			</div>	
 
 	<div class="map">
 		<div id="map"></div>
@@ -25,7 +21,7 @@
 					<div class="content4"></div>
 		</div>
 		<div class="filterField">
-			<h3>Pick a filter</h3>
+			<h3>Choose a Filter</h3>
 			<label><input class="severity" name="filter" type="radio" value="per_extremeseverity">Severity</label>
 			<label><input class="age" name="filter" type="radio" value="per_extremeseverity">Age group</label>
 			<label><input class="race" name="filter" type="radio" value="per_extremeseverity">Race</label>
@@ -35,12 +31,6 @@
 			<label><input class="patients" name="filter" type="radio" value="per_extremeseverity">Number of patients</label>
 			<label><input class="charges" name="filter" type="radio" value="per_extremeseverity">Average cost</label>
 
-
-
-
-
-			
-			
 		</div>
 		<ul class="legend">
 			<li><span class="text">0</span><span class="color lightest"></span></li><!--
@@ -51,10 +41,27 @@
 		</ul>
 	</div>
 	<div class="charts">
+		<div class="contextinfo">
+			<div class="container">
+				<div class="column-left2">
+					<div class="box">
+						<h3>Average Types of Payment</h3> 
+					</div>
+					<div id="barchartinsurance"></div>
+				</div>
+				<div class="column-right2">
+					<div class="box">
+						<h3>10 Priciest Hospitals</h3>
+					</div>
+					<div id="barchartprice"></div>
+				</div>
+			</div>
+		</div>
+
 		<div class="filterField2">
-			<h3>Pick a filter</h3>
+			<h3>Choose a Filter</h3>
 				<select id="9chartsFilter">
-					<option class="ethnicity" name="filter" type="options" value="per_hispanic" disabled selected>--</option>
+					<option class="ethnicity" name="filter" type="options" value="per_hispanic">per_hispanic</option>
 					<option class="ethnicity" name="filter" type="options" value="per_multi_ethnic">per_multi_ethnic</option>
 					<option class="ethnicity" name="filter" type="options" value="per_unknown">per_unknown</option>
 					<option class="race" name="filter" type="options" value="per_black">per_black</option>
@@ -111,12 +118,13 @@
 			<p>ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,</p>
 		</div>
 		<div class="nextbtn">
-			<div class="button">Learn More</div>
+			<a href="/mapthree.html"><div class="button">Learn More</div></a>
 		</div>
 	</div>
-	<footer class="footer">
+</div>	
+<footer class="footer">
 		<p>Developed by Elena, Davina, and Soraiya</p>
-	</footer>
+</footer>
 
 	<script type="text/javascript" src="./assets/hos2.js"></script>
 	<script src="js/maptwo.js"></script>

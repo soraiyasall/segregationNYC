@@ -144,7 +144,13 @@ const census = (function() {
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
                 center: {lat: 40.7128, lng: -74.0060},
-                disableDefaultUI: true,
+                disableDefaultUI: false,
+                zoomControl: true,
+                streetViewControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                rotateControl: false,
+                fullscreenControl: false,
                 styles:[
                     {
                         "featureType": "water",
@@ -421,7 +427,7 @@ census.init();
           colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'], 
           'chartArea': {'width': '100%', 'height': '80%'},
           backgroundColor: {'fill':'transparent'},
-          tooltip: {
+          tooltip: {title:" ",
             textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
           legend: {
           textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},

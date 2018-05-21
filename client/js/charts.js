@@ -1,3 +1,4 @@
+
 (function() {
     const containerNames = [
         'per_bluecross_blueshield',
@@ -12,6 +13,7 @@
         'per_unknownpayment'
     ];
 
+
     // select element 9chartsFilters and adding eventListener to all the changes from the filter
     document.getElementById('9chartsFilter').addEventListener('change', e => {
         fetch('/hospitals')
@@ -23,6 +25,8 @@
                 const formatedValuesGroup = containerNames.map(item => {
                     return data.map(d => {
                         return [d[item], d[e.target.options[e.target.selectedIndex].value]];
+                        return hName = [d[item], d[e.target.options[e.target.selectedIndex]]];
+                        console.log(e.target)
                     });
                 });
 
@@ -38,24 +42,31 @@
         google.charts.setOnLoadCallback(drawChart.bind(null, cls, val));
     }
 
-    function drawChart(container, value) {
+    function drawChart(container, value, hName) {
         var data = new google.visualization.DataTable();
         
         data.addColumn('number', 'per_bluecross_blueshield');
-        data.addColumn('number', 'Final');
+        data.addColumn('number');
 
         data.addRows(value)
 
         var options = {
             title: container.split('_').filter(w => w !== 'chart').join(' '),
-            hAxis: {title: container, minValue: 0, maxValue: 100, gridlines: {color:'#A9A9A9'}, textStyle:{ fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
-            vAxis: {title: value, minValue: 0, maxValue: 100, gridlines: {color:'#A9A9A9'}, textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
+            hAxis: {title: container, minValue: 0, maxValue: 100, gridlines: {color:'#A9A9A9'}, textStyle:{ fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}, viewWindow:{
+                max:100,
+                min:0
+            }},
+            vAxis: {title: value, minValue: 0, maxValue: 100, gridlines: {color:'#A9A9A9'}, textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}, viewWindow:{
+                max:50,
+                min:0
+            }},
             legend: 'none',
             colors:['#ff4172'],
             tooltip: {
                 textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
             backgroundColor: {'fill':'transparent'},
-            titleTextStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}
+            titleTextStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'},
+            pointSize: 4,
         };
 
 

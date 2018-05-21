@@ -1,13 +1,24 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+
 body {
     background-color: #e6e8f4;
     color: #323545;
     font-family: 'Raleway', sans-serif;
+    margin: 0 auto;
+
 }
 
 h1, h2, h3, h4, h5 {
     font-family: 'PT Sans', sans-serif;
 }
 
+  
+  p {
+    font-size: 12px;
+  }
+  
 
 .mapicon {
     position: fixed;
@@ -45,7 +56,13 @@ section {
 a {
     display: inline-block;
     border-radius: 50%;
+    text-decoration: none;
+    color: white;
   }
+
+a:hover {
+    color: #ff4172;
+}
 .next {
     width: 4em;
     height: 4em;
