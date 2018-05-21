@@ -20,9 +20,10 @@ const hospitals = (function() {
 	];
 	const severity = [
 		'per_extremeseverity',
-		'per_majorseverity',
-		'per_minorseverity',
-		'per_moderateseverity'
+        'per_majorseverity',
+        'per_moderateseverity',
+		'per_minorseverity'
+		
 	];
 
 	const race = [

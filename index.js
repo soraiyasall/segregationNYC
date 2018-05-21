@@ -137,7 +137,7 @@ app.get('/hospitals/age', (req, res) => {
 });
 app.get('/hospitals/severity', (req, res) => {
 
-	connection.query('SELECT per_extremeseverity, per_majorseverity, per_minorseverity, per_moderateseverity, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
+	connection.query('SELECT per_extremeseverity, per_majorseverity, per_moderateseverity, per_minorseverity,  latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
 		if (error) {
 			console.log('Error in /hospitals/severity route: ', error);
 		}
