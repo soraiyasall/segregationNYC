@@ -1,19 +1,21 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "express": "^4.16.3",
-    "mysql2": "^1.5.3"
-  },
-  "engines": {
-    "node": "9.2.1"
-  }
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "browser-sync start --server --serveStatic client/ -w",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"browser-sync": "^2.24.4",
+		"express": "^4.16.3",
+		"mysql2": "^1.5.3"
+	},
+	"engines": {
+		"node": "9.2.1"
+	}
 }
