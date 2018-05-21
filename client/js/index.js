@@ -423,7 +423,7 @@ census.init();
           tooltip: {title:" ",
             textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
           legend: {
-          textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
+          textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}},
           pieSliceTextStyle:{fontName:'Raleway, sans-serif', fontSize: 12, color:'white'}
 
         };

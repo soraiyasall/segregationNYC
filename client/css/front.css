@@ -3,8 +3,8 @@
   }
 
 body {
-    background-color: #e6e8f4;
-    color: #323545;
+    background-color: #536ade;
+    color: white;
     font-family: 'Raleway', sans-serif;
     margin: 0 auto;
 
@@ -23,11 +23,20 @@ h1, h2, h3, h4, h5 {
 .mapicon {
     position: fixed;
     right: 1em;
-    top: 1em;
+    top: 0.5em;
     width: 40px;
     height: 40px;
     display: block;
     z-index: 1;
+    border: 2px solid #ff4172;
+    padding: 4px;
+    border-radius: 100%;
+    background-color: #ff4172;
+}
+
+.mapicon:hover {
+    border: 2px solid #536ade;
+    background-color:  #536ade;
 }
 
 img {
@@ -37,14 +46,12 @@ img {
 section { 
     position: relative;
     height: 100vh;
-    background: url(/img/skyline.svg) center bottom -210px;
     background-repeat: no-repeat;
     text-align: center;
 }
 
 .two, .four {
-    background-color: #536ade;
-
+    background-color: #323545;
 }
 .container {
     position: absolute;
@@ -66,7 +73,7 @@ a:hover {
 .next {
     width: 4em;
     height: 4em;
-    border: 0.4em solid #536ade;
+    border: 0.4em solid white;
     border-radius: 50%;
     padding: 0px;
     cursor: pointer;
@@ -84,8 +91,8 @@ a:hover {
     display: inline-block;
     width: 1.3em;
     height: 1.3em;
-    border-top: 0.4em solid #536ade;
-    border-right: 0.4em solid #536ade;
+    border-top: 0.4em solid white;
+    border-right: 0.4em solid white;
     -moz-transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
@@ -123,7 +130,7 @@ a:hover {
 
   footer {
       overflow: hidden;
-      background-color: #323545;
+      background-color: #536ade;
   }
 
   p {

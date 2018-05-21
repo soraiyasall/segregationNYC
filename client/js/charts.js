@@ -52,20 +52,19 @@
 
         var options = {
             title: container.split('_').filter(w => w !== 'chart').join(' '),
-            hAxis: {title: container, minValue: 0, maxValue: 100, gridlines: {color:'#A9A9A9'}, textStyle:{ fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}, viewWindow:{
+            hAxis: {title: container, minValue: 0, maxValue: 100, gridlines: {color:'white'}, titleTextStyle:{ fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}, viewWindow:{
                 max:100,
                 min:0
-            }},
-            vAxis: {title: value, minValue: 0, maxValue: 100, gridlines: {color:'#A9A9A9'}, textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}, viewWindow:{
+            }, textStyle:{fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}, baselineColor: 'white'},
+            vAxis: {title: value, minValue: 0, maxValue: 100, gridlines: {color:'white'}, textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}, viewWindow:{
                 max:50,
-                min:0
-            }},
+                min:0}, baselineColor: 'white'},
             legend: 'none',
             colors:['#ff4172'],
             tooltip: {
                 textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
             backgroundColor: {'fill':'transparent'},
-            titleTextStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'},
+            titleTextStyle: {fontName:'Raleway, sans-serif', fontSize: 15, color: 'white'},
             pointSize: 4,
         };
 
