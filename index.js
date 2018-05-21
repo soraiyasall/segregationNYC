@@ -176,6 +176,17 @@ app.get('/hospitals/gender', (req, res) => {
 	});
 
 });
+app.get('/hospitals/patients', (req, res) => {
+
+	connection.query('SELECT patients, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
+		if (error) {
+			console.log('Error in /hospitals/gender route: ', error);
+		}
+		res.json(results);
+	});
+
+});
+
 app.get('/hospitals/ethnicity', (req, res) => {
 
 	connection.query('SELECT per_hispanic, per_nonHispanic,  per_multi_ethnic, per_unknown, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
