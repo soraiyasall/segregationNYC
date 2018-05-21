@@ -504,15 +504,23 @@ li:last-of-type .text {
 }
 
 .column-right2{
-   float: right;
-    width: 50%;
-    padding: 0 1em;
-    overflow: hidden;
+	float: right;
+	width: 50%;
+	padding: 0 1em;
+	overflow: hidden;
 
-   }
+}
 
-   .data-info .container ol {
-    padding: 1em;
-    line-height: 25px;
-    list-style: decimal;
-  }
+.data-info .container ol {
+	padding: 1em;
+	line-height: 25px;
+	list-style: decimal;
+}
+
+.legend2 span:first-of-type {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+}

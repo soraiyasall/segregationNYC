@@ -189,7 +189,7 @@ app.get('/hospitals/ethnicity', (req, res) => {
 
 app.get('/hospitals/charges', (req, res) => {
 
-	connection.query('SELECT total_charges, latitude, longitude  FROM hospitals;', function (error, results, fields) {
+	connection.query('SELECT total_charges, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
 		if (error) {
 			console.log('Error in /hospitals/charges route: ', error);
 		}
