@@ -238,7 +238,6 @@ const hospitals = (function() {
 								map: map,
 								center: {lat: entry.latitude, lng: entry.longitude},
                             });
-                            console.log(entry)
                             circle.addListener('mouseover', putValueInLegend.bind(null, entry));
 							circles.push(circle)
                         });

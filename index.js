@@ -168,7 +168,7 @@ app.get('/hospitals/payment', (req, res) => {
 });
 app.get('/hospitals/gender', (req, res) => {
 
-	connection.query('SELECT per_male, per_females,  patients, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
+	connection.query('SELECT per_male, per_females, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
 		if (error) {
 			console.log('Error in /hospitals/gender route: ', error);
 		}
