@@ -339,40 +339,20 @@ const census = (function() {
                         inner.innerHTML = content;
                         container.className = 'show';        
                 })
+
             });
-
-
             map.data.addListener('mouseout', function(e) {
                 const container = document.getElementById('popup');
                 container.className = 'hide';
 
             });
 
-            map.data.addListener('mouseover', function(e) {
-                fetch('/get/' + e.feature.f.geoid)
-                    .then(res => res.json())
-                    .then(data => {
-                        const container = document.getElementById('popup3');
-                        const inner = document.querySelector('.content1');
-                        const content1 = `
-                            <ul>
-                                <li><span class="title">Census Tract:</span> ${e.feature.f.geoid}</li>
-                                <li><span class="title">Borough Name:</span> ${data.Borough}</li>
-                                <li><span class="title">Total Pop:</span> ${data.TotalPop}</li>
-                                <li><span class="title">${selectedField}:</span> ${data[selectedField]}</li>
-                            </ul>`; 
-                        inner.innerHTML = content1;
-                        container.className = 'show';        
-                })
-            });
 
-
-            map.data.addListener('mouseout', function(e) {
+             map.data.addListener('mouseout', function(e) {
                 const container = document.getElementById('popup3');
                 container.className = 'hide';
 
             });
-
             geoJson2.features.forEach(hos => {
                 let circle = new google.maps.Circle({                                 
                     fillColor: '#536ade',
@@ -384,7 +364,20 @@ const census = (function() {
                     map: map,
                     center: {lat : hos.properties.latitude, lng : hos.properties.longitude}
                 });
+                circle.addListener('mouseover', e => {
+                    console.log(geoJson2.features)
+                    const container = document.getElementById('popup3');
+                    const inner = document.querySelector('.content1');
+                    const content1 = `
+                        <ul>
+                            <li><span class="title">Hospital name:</span> ${hos.properties.facility_name} </li>
+                            </ul>`; 
+                    inner.innerHTML = content1;
+                    container.className = 'show';     
+                 });
+    
             });
+
             attachEvents(map);
         };
         window.initMap = initMap;
