@@ -554,14 +554,12 @@ li:last-of-type .text {
 }
 
 .column-right2{
-   float: right;
-    width: 50%;
-    padding: 0 1em;
-    overflow: hidden;
+	float: right;
+	width: 50%;
+	padding: 0 1em;
+	overflow: hidden;
 
-   }
-
- 
+}
 
 /* Footer */
 
