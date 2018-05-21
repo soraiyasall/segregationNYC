@@ -128,7 +128,7 @@ width: 100%;
   line-height: 25px;
 }
 
-.data-info .container ol {
+Gdata-info .container ol {
   padding: 1em;
   line-height: 25px;
   list-style: decimal;
@@ -460,6 +460,18 @@ li .text {
 
 li:last-of-type .text {
   margin-left: -1.25em;
+}
+
+.legend2 {
+	color: #000;
+}
+
+.legend2 span:first-of-type {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	border: 1px solid #ccc;
 }
 
 .color {
