@@ -17,7 +17,6 @@ const taxi = (function() {
 	}
 
 	const attachEvents = map => {
-		console.log(geoJson2);
 		let state = [];
 
 		fetch('/taxi')
@@ -66,7 +65,6 @@ const taxi = (function() {
 						trips.push(path);
 					}
 				});
-				console.log(hos.properties.facility_name, trips.length)
 				buildPopup(hos.properties.facility_name, trips.length);
 			});
 		});

@@ -74,6 +74,7 @@ const census = (function() {
                         .then(res => res.json())
                         .then(data => {
                             map.data.setStyle(feature => {
+                                console.log(feature)
                                 const tract = data.find(item => item.Tract === feature.f.geoid);
                                 return {
                                     fillColor: getColors('income', tract ? tract[e.target.value] : 0),
@@ -356,8 +357,8 @@ const census = (function() {
             geoJson2.features.forEach(hos => {
                 let circle = new google.maps.Circle({                                 
                     fillColor: '#536ade',
-                    fillOpacity: 1,
-                    radius: 250,
+                    fillOpacity: .8,
+                    radius: 400,
                     strokeColor: 'white',
                     strokeWeight: .4,
                     zIndex: 10.0,
@@ -365,7 +366,6 @@ const census = (function() {
                     center: {lat : hos.properties.latitude, lng : hos.properties.longitude}
                 });
                 circle.addListener('mouseover', e => {
-                    console.log(geoJson2.features)
                     const container = document.getElementById('popup3');
                     const inner = document.querySelector('.content1');
                     const content1 = `
