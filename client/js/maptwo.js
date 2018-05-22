@@ -510,12 +510,12 @@ hospitals.init();
     ]);
 
       var options = {
-        width: 500,
-        height: 400,
-        chartArea: {
-            top: 75,
-            height: '40%' 
-         },
+		width: '50%',
+		height: '250',
+		chartArea:{
+			width: '50%',
+			height: '80%',
+		},
         bar: {groupWidth: "40%"},
         colors: ['#ff4172'],         
         backgroundColor: {'fill':'transparent'},
@@ -524,18 +524,18 @@ hospitals.init();
         legend: {
         position:'none'},
         vAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}},
-        hAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}},
+        hAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 10, color: 'white'}},
 
 
       };
 
       var options2 = {
-        width: 500,
-        height: 400,
-        chartArea: {
-            top: 75,
-            height: '40%' 
-         },
+        width: '50%',
+		height: '250',
+		chartArea:{
+			width: '50%',
+			height: '80%',
+		},
         colors: ['#ff4172'],         
         backgroundColor: {'fill':'transparent'},
         tooltip: {title:" ",
@@ -544,7 +544,7 @@ hospitals.init();
         position:'none'},
         bar: {groupWidth: "75%"},
         vAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}},
-        hAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: 'white'}},
+        hAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 10, color: 'white'} },
 
 
         };

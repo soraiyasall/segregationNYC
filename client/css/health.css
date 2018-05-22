@@ -35,6 +35,10 @@ header {
 	max-width: 100%;
 }
 
+.context-info {
+  margin-top: 20px;
+}
+
 .header {
 	padding: .5em 0;
 	text-align: center;
@@ -74,7 +78,8 @@ header {
 }
 
 .column-third p {
-	line-height: 1.125em;
+  line-height: 1.125em;
+  padding: 0.5em 0em;
 }
 
 .column-third a {
@@ -248,14 +253,22 @@ margin-bottom: 10px;
 }
 
 .filterField2 {
-	padding: 2em;
+  padding: 0em 2em;
+  margin-bottom: 20px;
 }
 
 .filterField2 h3 {
-	color:white;
-	padding: 0.5em 0em;
-	font-weight: bold;
-	text-transform: uppercase;
+  color: white;
+  padding: 0.5em 0em;
+  text-align: center;
+  font-size: 1.25em;
+  text-transform: uppercase;
+  font-weight: 600;
+  
+}
+
+.filterField2 p {
+  margin-bottom: 10px;
 }
 
 label {
