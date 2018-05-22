@@ -7,6 +7,8 @@ body {
   color: white;
   font-family: 'Raleway', sans-serif;
   margin: 0 auto;
+  background-color: #333544;
+
 }
 
 header {
@@ -23,12 +25,10 @@ header {
 	right: 1em;
 	top: 1em;
 	z-index: 1;
-	border: 2px solid white;
 }
 
 .mapicon:hover {
 	background-color: #536ade;
-	border: 2px solid transparent;
 }
 
 .mapicon img {
@@ -77,12 +77,17 @@ header {
 	line-height: 1.125em;
 }
 
+.column-third a {
+  color: #ff4172;
+  text-decoration: none;
+}
+
 #map {
 	position: static;
 	height: 70vh;
 	width: 100%;
-	bottom: 0;
-	left: 0;
+  left: 0;
+  bottom: 25px;
 }
 
 .map {
@@ -94,7 +99,14 @@ header {
 .nextsection {
 	background-color:#323545;
 	position: relative; 
-	text-align: center;
+  text-align: center;
+
+}
+
+.page-id-hospitals {
+  border-top: 2px solid white;
+  margin-top:20px;
+
 }
 
 .nextsection::after {
@@ -142,7 +154,7 @@ margin-bottom: 10px;
 	top: 10px;
 	left: 10px;
 	background-color: #323545bb;
-	height: 10em;
+	height: 7em;
 	border: 1px solid;
 	border-radius: 3px;
 	border: none;
@@ -327,7 +339,7 @@ margin-bottom: 5px;
 
 .legend {
 	position: absolute;
-	bottom: 5px;
+	bottom: 20px;
 	right: 5px;
 	width: 40%;
 	background: white;
@@ -341,7 +353,8 @@ margin-bottom: 5px;
 
 .text {
 	position: absolute;
-	bottom: .25em;
+  bottom: .25em;
+  color: #323545;
 }
 
 li .text {
@@ -480,6 +493,8 @@ li:last-of-type .text {
 }
 
 /* Footer */
+/* 
+
 
 footer {
 	overflow: hidden;
@@ -504,6 +519,28 @@ footer a {
 
 footer a:hover {
 	color: #ff4172;
+} */
+
+
+
+footer {
+	padding: 1em 0;
+  letter-spacing: .05em;
+  background-color: #536ade;
+  text-align: center;
+}
+
+footer a {
+	color: #fff;
+	text-decoration: none;
+}
+
+footer a:hover {
+	color: #ff4172;
+}
+
+footer p {
+	margin-bottom: 0;
 }
 
 @media screen and (min-width: 720px) {

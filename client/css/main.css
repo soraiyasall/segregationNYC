@@ -48,12 +48,10 @@ section:nth-of-type(even) {
 	right: 1em;
 	top: 1em;
 	z-index: 1;
-	border: 2px solid white;
 }
 
 .mapicon:hover {
 	background-color: #536ade;
-	border: 2px solid transparent;
 }
 
 .mapicon img {
@@ -86,7 +84,7 @@ section:nth-of-type(even) {
 	border-right: 5px solid white;
 	display: inline-block;
 	transform: rotate(45deg);
-	margin-top: -5px;
+	margin-top: -3px;
 }
 
 .next:hover, .next:hover::after {
@@ -94,7 +92,7 @@ section:nth-of-type(even) {
 }
 
 .btn1 {
-	border: 2px solid white;
+	border: 2px solid transparent;
 	background-color: #ff4172;
 	color: white;
 	padding: 14px 28px;
