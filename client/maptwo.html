@@ -1,124 +1,126 @@
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="./css/health.css">
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Raleway" rel="stylesheet">
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-</head>
-<body>
-	<a class="mapicon" href="/mapthree.html"><img src="/img/map.svg"></a>
-	<div class="titlebox">
-		<h1>NYC Demographic Info</h1>
-	</div>
-	<div class="wrapper">
-	<div class="map">
-		<div id="map"></div>
-		<div class="filterField">
-			<h3>Choose a Filter</h3>
-			<label><input class="severity" name="filter" type="radio" value="per_extremeseverity">Severity</label>
-			<label><input class="age" name="filter" type="radio" value="per_extremeseverity">Age group</label>
-			<label><input class="race" name="filter" type="radio" value="per_extremeseverity">Race</label>
-			<label><input class="ethnicity" name="filter" type="radio" value="per_extremeseverity">Ethnicity</label>
-			<label><input class="payment" name="filter" type="radio" value="per_extremeseverity">Payment</label>
-			<label><input class="gender" name="filter" type="radio" value="per_extremeseverity">Gender</label>
-			<label><input class="patients" name="filter" type="radio" value="per_extremeseverity">Number of patients</label>
-			<label><input class="charges" name="filter" type="radio" value="per_extremeseverity">Average cost</label>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/health.css">
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Raleway" rel="stylesheet">
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	</head>
+	<body class="map2">
+		<header>
+			<a class="mapicon" href="/mapthree.html"><img src="/img/map.svg"></a>
+			<h1 class="header">NYC Demographic Info</h1>
+		</header>
+		<div class="wrapper">
+			<div class="map">
+				<div id="map"></div>
+				<div class="filterField">
+					<h3>Choose a Filter</h3>
+					<label><input class="severity" name="filter" type="radio" value="per_extremeseverity">Severity</label>
+					<label><input class="age" name="filter" type="radio" value="per_extremeseverity">Age group</label>
+					<label><input class="race" name="filter" type="radio" value="per_extremeseverity">Race</label>
+					<label><input class="ethnicity" name="filter" type="radio" value="per_extremeseverity">Ethnicity</label>
+					<label><input class="payment" name="filter" type="radio" value="per_extremeseverity">Payment</label>
+					<label><input class="gender" name="filter" type="radio" value="per_extremeseverity">Gender</label>
+					<label><input class="patients" name="filter" type="radio" value="per_extremeseverity">Number of patients</label>
+					<label><input class="charges" name="filter" type="radio" value="per_extremeseverity">Average cost</label>
 
-		</div>
-		<div class="legend"></div>
-	</div>
-	<div class="charts">
-		<div class="contextinfo">
-			<div class="container">
-				<div class="column-left2">
-					<div class="box">
-						<h3>Average Types of Payment</h3> 
+				</div>
+				<div class="legend"></div>
+			</div>
+			<div class="charts">
+				<div class="contextinfo">
+					<div class="container">
+						<div class="column-left2">
+							<div class="box">
+								<h3>Average Types of Payment</h3> 
+							</div>
+							<div id="barchartinsurance"></div>
+						</div>
+						<div class="column-right2">
+							<div class="box">
+								<h3>10 Priciest Hospitals</h3>
+							</div>
+							<div id="barchartprice"></div>
+						</div>
 					</div>
-					<div id="barchartinsurance"></div>
 				</div>
-				<div class="column-right2">
+
+				<div class="filterField2">
 					<div class="box">
-						<h3>10 Priciest Hospitals</h3>
+						<h3>Average Types of Payment vs. Demographic Data</h3> 
 					</div>
-					<div id="barchartprice"></div>
+					<h4>Choose a Filter</h4>
+					<select id="9chartsFilter">
+						<option class="ethnicity" name="filter" type="options" value="per_hispanic">per_hispanic</option>
+						<option class="ethnicity" name="filter" type="options" value="per_multi_ethnic">per_multi_ethnic</option>
+						<option class="ethnicity" name="filter" type="options" value="per_unknown">per_unknown</option>
+						<option class="race" name="filter" type="options" value="per_black">per_black</option>
+						<option class="race" name="filter" type="options" value="per_multiracial">per_multiracial</option>
+						<option class="race" name="filter" type="options" value="per_otherrace">per_otherrace</option>
+						<option class="race" name="filter" type="options" value="per_white">per_white</option>
+						<option class="age" name="filter" type="options" value="per_0_17">per_0_17</option>
+						<option class="age" name="filter" type="options" value="per_18_29">per_18_29</option>
+						<option class="age" name="filter" type="options" value="per_30_49">per_30_49</option>
+						<option class="age" name="filter" type="options" value="per_50_69">per_50_69</option>
+						<option class="age" name="filter" type="options" value="per_70">per_70</option>
+					</select>
+
+				</div>
+				<div class="container2">
+					<div class="columns columns-one">
+						<div class="chart" id="per_bluecross_blueshield_chart"></div>
+					</div>
+					<div class="columns columns-two">
+						<div class="chart" id="per_depofcorrections_chart"></div>
+					</div>
+					<div class="columns columns-three">
+						<div class="chart" id="federal_state_local_va_chart"></div>
+					</div>
+					<div class="columns columns-four">
+						<div class="chart" id="per_managedcare_chart"></div>
+					</div>
+					<div class="columns columns-five">
+						<div class="chart" id="per_medicaid_chart"></div>
+					</div>
+
+				</div>
+				<div class="container2">
+					<div class="columns columns-one">
+						<div class="chart" id="per_medicare_chart"></div>
+					</div>
+					<div class="columns columns-two">
+						<div class="chart" id="per_miscpayment_chart"></div>
+					</div>
+					<div class="columns columns-three">
+						<div class="chart" id="per_private_chart"></div>
+					</div>
+					<div class="columns columns-four">
+						<div class="chart" id="per_selfpayment_chart"></div>
+					</div>
+					<div class="columns columns-five">			
+						<div class="chart" id="per_unknownpayment_chart"></div>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="filterField2">
-			<div class="box">
-				<h3>Average Types of Payment vs. Demographic Data</h3> 
-			</div>
-			<h4>Choose a Filter</h4>
-				<select id="9chartsFilter">
-					<option class="ethnicity" name="filter" type="options" value="per_hispanic">per_hispanic</option>
-					<option class="ethnicity" name="filter" type="options" value="per_multi_ethnic">per_multi_ethnic</option>
-					<option class="ethnicity" name="filter" type="options" value="per_unknown">per_unknown</option>
-					<option class="race" name="filter" type="options" value="per_black">per_black</option>
-					<option class="race" name="filter" type="options" value="per_multiracial">per_multiracial</option>
-					<option class="race" name="filter" type="options" value="per_otherrace">per_otherrace</option>
-					<option class="race" name="filter" type="options" value="per_white">per_white</option>
-					<option class="age" name="filter" type="options" value="per_0_17">per_0_17</option>
-					<option class="age" name="filter" type="options" value="per_18_29">per_18_29</option>
-					<option class="age" name="filter" type="options" value="per_30_49">per_30_49</option>
-					<option class="age" name="filter" type="options" value="per_50_69">per_50_69</option>
-					<option class="age" name="filter" type="options" value="per_70">per_70</option>
-			</select>
-		
-		</div>
-		<div class="container2">
-			<div class="columns columns-one">
-				<div class="chart" id="per_bluecross_blueshield_chart"></div>
-			</div>
-			<div class="columns columns-two">
-				<div class="chart" id="per_depofcorrections_chart"></div>
-			</div>
-			<div class="columns columns-three">
-				<div class="chart" id="federal_state_local_va_chart"></div>
+			<div class="nextsection">
+				<div class="nextinfo">
+					<p>ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,</p>
 				</div>
-			<div class="columns columns-four">
-				<div class="chart" id="per_managedcare_chart"></div>
+				<div class="nextbtn">
+					<a href="/mapthree.html"><div class="button">Explore</div></a>
+				</div>
 			</div>
-			<div class="columns columns-five">
-				<div class="chart" id="per_medicaid_chart"></div>
-			</div>
+		</div>	
+		<footer class="footer">
+			<p>Developed by <a href="https://www.linkedin.com/in/elena-mat%C3%A9-m%C3%BAgica-b76b84100/" target="_blank">Elena Mate</a>, <a href="https://www.linkedin.com/in/davina-tijani-75320b79/" target="_blank">Davina Tijani</a>, &amp; <a href="https://www.linkedin.com/in/soraiyasalemohamed/" target="_blank">Soraiya Salemohamed</a></p>
 
-		</div>
-		<div class="container2">
-			<div class="columns columns-one">
-				<div class="chart" id="per_medicare_chart"></div>
-			</div>
-			<div class="columns columns-two">
-				<div class="chart" id="per_miscpayment_chart"></div>
-			</div>
-			<div class="columns columns-three">
-				<div class="chart" id="per_private_chart"></div>
-			</div>
-			<div class="columns columns-four">
-				<div class="chart" id="per_selfpayment_chart"></div>
-			</div>
-			<div class="columns columns-five">			
-				<div class="chart" id="per_unknownpayment_chart"></div>
-			</div>
-		</div>
-	</div>
-
-	<div class="nextsection">
-		<div class="nextinfo">
-			<p>ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,</p>
-		</div>
-		<div class="nextbtn">
-			<a href="/mapthree.html"><div class="button">Explore</div></a>
-		</div>
-	</div>
-</div>	
-<footer class="footer">
-	<p>Developed by <a href="https://www.linkedin.com/in/elena-mat%C3%A9-m%C3%BAgica-b76b84100/" target="_blank">Elena Mate</a>, <a href="https://www.linkedin.com/in/davina-tijani-75320b79/" target="_blank">Davina Tijani</a>, &amp; <a href="https://www.linkedin.com/in/soraiyasalemohamed/" target="_blank">Soraiya Salemohamed</a></p>
-
-</footer>
-	<script type="text/javascript" src="./assets/hos2.js"></script>
-	<script src="js/maptwo.js"></script>
-	<script src="js/charts.js"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrmpo41rCZfkN9Qu6QWCb08JSXU9K6yY4&callback=initMap" async defer></script>
-</body>
+		</footer>
+		<script type="text/javascript" src="./assets/hos2.js"></script>
+		<script src="js/maptwo.js"></script>
+		<script src="js/charts.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrmpo41rCZfkN9Qu6QWCb08JSXU9K6yY4&callback=initMap" async defer></script>
+	</body>
 </html>
