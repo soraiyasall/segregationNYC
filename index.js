@@ -137,7 +137,7 @@ app.get('/hospitals/age', (req, res) => {
 });
 app.get('/hospitals/severity', (req, res) => {
 
-	connection.query('SELECT per_extremeseverity, per_majorseverity, per_minorseverity, per_moderateseverity, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
+	connection.query('SELECT per_extremeseverity, per_majorseverity, per_moderateseverity, per_minorseverity,  latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
 		if (error) {
 			console.log('Error in /hospitals/severity route: ', error);
 		}
@@ -168,7 +168,7 @@ app.get('/hospitals/payment', (req, res) => {
 });
 app.get('/hospitals/gender', (req, res) => {
 
-	connection.query('SELECT per_male, per_females,  patients, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
+	connection.query('SELECT per_male, per_females, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
 		if (error) {
 			console.log('Error in /hospitals/gender route: ', error);
 		}
@@ -176,6 +176,17 @@ app.get('/hospitals/gender', (req, res) => {
 	});
 
 });
+app.get('/hospitals/patients', (req, res) => {
+
+	connection.query('SELECT patients, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
+		if (error) {
+			console.log('Error in /hospitals/gender route: ', error);
+		}
+		res.json(results);
+	});
+
+});
+
 app.get('/hospitals/ethnicity', (req, res) => {
 
 	connection.query('SELECT per_hispanic, per_nonHispanic,  per_multi_ethnic, per_unknown, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {

@@ -20,9 +20,10 @@ const hospitals = (function() {
 	];
 	const severity = [
 		'per_extremeseverity',
-		'per_majorseverity',
-		'per_minorseverity',
-		'per_moderateseverity'
+        'per_majorseverity',
+        'per_moderateseverity',
+		'per_minorseverity'
+		
 	];
 
 	const race = [
@@ -87,7 +88,7 @@ const hospitals = (function() {
 
 	const putValueInLegend = (entry) => {
 		Object.keys(entry).filter(k => k !== 'latitude' && k !== 'longitude' && k !== 'fac_id').forEach(variable => {
-			const container = document.querySelector('.' + variable);
+            const container = document.querySelector('.legend2 .' + variable);
 			container.innerHTML = entry[variable].toFixed(2);
 		});
 	};
@@ -209,7 +210,6 @@ const hospitals = (function() {
 				.then(data => {
                     const tract = data.filter(crossRef);
                     drawLegend(Object.keys(tract[0]).length - 3, gender);
-
 					tract.forEach(entry => {
 						gender.forEach(plotCircles(entry, map));
 					});
@@ -220,11 +220,13 @@ const hospitals = (function() {
 				circles.forEach(c => c.setMap(null));
 
 			selectedField = e.target.value;
-			fetch('/hospitals/gender')
+			fetch('/hospitals/patients')
 				.then(res => res.json())
 				.then(data => {
                     const tract = data.filter(crossRef);
+
                     drawLegend(Object.keys(tract[0]).length - 3, patients);
+
 					tract.forEach(entry => {
 						patients.forEach((variable, i) => {
 							let circle = new google.maps.Circle({
@@ -235,9 +237,10 @@ const hospitals = (function() {
 								strokeWeight: .2,
 								map: map,
 								center: {lat: entry.latitude, lng: entry.longitude},
-							});
+                            });
+                            circle.addListener('mouseover', putValueInLegend.bind(null, entry));
 							circles.push(circle)
-						});
+                        });
 					});
 				});
 		});
@@ -249,7 +252,9 @@ const hospitals = (function() {
 			fetch('/hospitals/charges')
 				.then(res => res.json())
 				.then(data => {
-					data.forEach(entry => {
+                    const tract = data.filter(crossRef);
+                    drawLegend(Object.keys(tract[0]).length - 3, charges);
+					tract.forEach(entry => {
 						charges.forEach((variable, i) => {
 							let circle = new google.maps.Circle({
 								fillColor: COLORS[i],
@@ -260,8 +265,9 @@ const hospitals = (function() {
 								map: map,
 								center: {lat: entry.latitude, lng: entry.longitude},
 							});
+                            circle.addListener('mouseover', putValueInLegend.bind(null, entry));
 							circles.push(circle)
-						});
+                        });
 					});
 				});
 		});
