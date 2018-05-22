@@ -144,13 +144,6 @@ const census = (function() {
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
                 center: {lat: 40.7128, lng: -74.0060},
-                disableDefaultUI: false,
-                zoomControl: true,
-                streetViewControl: false,
-                mapTypeControl: false,
-                scaleControl: false,
-                rotateControl: false,
-                fullscreenControl: false,
                 styles:[
                     {
                         "featureType": "water",
