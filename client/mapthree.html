@@ -1,71 +1,126 @@
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="./css/health.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Raleway" rel="stylesheet">
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<link rel='shortcut icon' type='image/png' href='/img/fav.png' />
+	<head>
+		<meta charset="utf-8">
+		<title>Segregation in Hospitals in NYC</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/health.css">
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Raleway" rel="stylesheet">
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<link rel='shortcut icon' type='image/png' href='/img/fav.png' />
 
+	</head>
+	<body class="map2">
+		<header>
+			<a class="mapicon" href="/index.html"><img src="/img/map.svg"></a>
+			<h1 class="header">Segregation in Hospitals</h1>
+		</header>
+		<div class="wrapper">
+			<div class="map">
+				<div id="map"></div>
+				<div class="filterField">
+					<h3>Choose a Filter</h3>
+					<label><input class="severity" name="filter" type="radio" value="per_extremeseverity">Severity (%)</label>
+					<label><input class="age" name="filter" type="radio" value="per_extremeseverity">Age group (%)</label>
+					<label><input class="race" name="filter" type="radio" value="per_extremeseverity">Race (%)</label>
+					<label><input class="ethnicity" name="filter" type="radio" value="per_extremeseverity">Ethnicity (%)</label>
+					<label><input class="payment" name="filter" type="radio" value="per_extremeseverity">Payment (%)</label>
+					<label><input class="gender" name="filter" type="radio" value="per_extremeseverity">Gender (%)</label>
+					<label><input class="patients" name="filter" type="radio" value="per_extremeseverity">Number of patients</label>
+					<label><input class="charges" name="filter" type="radio" value="per_extremeseverity">Average cost ($USD)</label>
 
+				</div>
+				<div class="legend" class="hide"></div>
+				<div id="popup6"  class="hide">
+					<div class="content6"></div>
+				</div>
+			</div>
+			<div class="charts">
+					<div class="context-info">
+							<div class="column-third">
+								<h3>Average Types of Payment (%)</h3>
+								<div id="barchartinsurance"></div>
+							</div><!--
+							--><div class="column-third">
+								<h3>10 Priciest Hospitals ($USD)</h3>
+								<div id="barchartprice"></div>
+							</div><!--
+							--><div class="column-third">
+								<h3>Info</h3>
+								<p>This map illustrates the discharge rates across major hospitals in NYC. You can visualize the disparities across race, gender, the average cost of a typical emergency, and payment type. Circles appear over hospitals to demonstrate the size of each parameter, refer to the legend. Below are graphs that explain the type of payment against various demographic variables such as age group, races, and ethnicities.</p>
+								<a href="https://health.data.ny.gov/Health/Hospital-Inpatient-Discharges-SPARCS-De-Identified/gnzp-ekau/" target="_blank">
+									<p>Source: Hospital Inpatient Discharges (SPARCS De-Identified): 2016</p>
+								</a>
+							</div>
+						</div>
 
-</head>
-<body>
-	<header>
-		<a class="mapicon" href="/maptwo.html"><img src="/img/map.svg"></a>
-		<h1 class="header">Taxi Trips to Hospitals</h1>
-		<div class="column-third">
-			<h3>Most Visited Hospitals</h3> 
-			<ol>
-				<li>Mount Sinai Hospital = 1207</li>
-				<li>NewYork-Presbyterian Brooklyn Methodist Hospital =1198</li>
-				<li>New York Presbyterian Hospital - Columbia Presbyterian Center = 816</li>
-				<li>Lenox Hill Hospital = 698</li>
-				<li>Harlem Hospital Center = 592</li>
-			</ol>
-		</div><!--
-	 --><div class="column-third">
-			<h3>Best Ranked Hospitals</h3>
-			<ol>
-				<li>New York-Presbyterian Hospital-Columbia and Cornell</li>
-				<li>Mount Sinai Hospital</li>
-				<li>NYU Langone Medical Center</li>
-				<li>Montefiore Medical Center</li>
-				<li>Lenox Hill Hospital</li>
-			</ol>
-			<a href="https://health.usnews.com/best-hospitals/area/ny"p>Source: US News</p></a>
-		</div><!--
-	 --><div class="column-third">
-			<h3>Info</h3>
-			<p>This map visualises taxi trips to major hospitals around New York City from the first week of January, 2016. Each hospital have lines representing the trips from different parts of the city. Play around by hovering over the circles (hospitals) to see which ones are most popular.</p>
-			<a href="https://data.cityofnewyork.us/Transportation/2016-Green-Taxi-Trip-Data/hvrh-b6nb" target="_blank">
-				<p>Source: 2016 Green Taxi trip data</p>
-			</a>
-		</div>
-	</header>	
+				<div class="filterField2">
+					<div class="box">
+						<h3>Average Types of Payment vs. Demographic Data</h3> 
+					</div>
+					<p>Choose a Filter</p>
+					<select id="9chartsFilter">
+						<option class="ethnicity" name="filter" type="options">---</option>
+						<option class="ethnicity" name="filter" type="options" value="per_hispanic">per_hispanic</option>
+						<option class="ethnicity" name="filter" type="options" value="per_multi_ethnic">per_multi_ethnic</option>
+						<option class="ethnicity" name="filter" type="options" value="per_unknown">per_unknown</option>
+						<option class="race" name="filter" type="options" value="per_black">per_black</option>
+						<option class="race" name="filter" type="options" value="per_multiracial">per_multiracial</option>
+						<option class="race" name="filter" type="options" value="per_otherrace">per_otherrace</option>
+						<option class="race" name="filter" type="options" value="per_white">per_white</option>
+						<option class="age" name="filter" type="options" value="per_0_17">per_0_17</option>
+						<option class="age" name="filter" type="options" value="per_18_29">per_18_29</option>
+						<option class="age" name="filter" type="options" value="per_30_49">per_30_49</option>
+						<option class="age" name="filter" type="options" value="per_50_69">per_50_69</option>
+						<option class="age" name="filter" type="options" value="per_70">per_70</option>
+					</select>
 
-	<div class="map">
-		<div id="map"></div>
-		<div id="popup" class="hide">
-			<div class="content"></div>
-		</div>
-	</div>
+				</div>
+				<div class="container2">
+					<div class="columns columns-one">
+						<div class="chart" id="per_bluecross_blueshield_chart"></div>
+					</div>
+					<div class="columns columns-two">
+						<div class="chart" id="per_depofcorrections_chart"></div>
+					</div>
+					<div class="columns columns-three">
+						<div class="chart" id="federal_state_local_va_chart"></div>
+					</div>
+					<div class="columns columns-four">
+						<div class="chart" id="per_managedcare_chart"></div>
+					</div>
+					<div class="columns columns-five">
+						<div class="chart" id="per_medicaid_chart"></div>
+					</div>
 
-	<div class="nextsection">		
-		<div class="nextinfo">
-			<p>Check out our next map that illustrates the discharge rates across major hospitals in NYC. You can visualize the disparities across race, gender, the average cost of a typical emergency, and payment type. Circles appear over hospitals to demonstrate the size of each parameter, refer to the legend.</p>
-		</div>
-		<div class="nextbtn">
-			<div class="button">Explore</div>
-		</div>
-	</div>
+				</div>
+				<div class="container2">
+					<div class="columns columns-one">
+						<div class="chart" id="per_medicare_chart"></div>
+					</div>
+					<div class="columns columns-two">
+						<div class="chart" id="per_miscpayment_chart"></div>
+					</div>
+					<div class="columns columns-three">
+						<div class="chart" id="per_private_chart"></div>
+					</div>
+					<div class="columns columns-four">
+						<div class="chart" id="per_selfpayment_chart"></div>
+					</div>
+					<div class="columns columns-five">			
+						<div class="chart" id="per_unknownpayment_chart"></div>
+					</div>
+				</div>
+			</div>
 
-	<footer class="footer">
-		<p>Developed by <a href="https://www.linkedin.com/in/elena-mat%C3%A9-m%C3%BAgica-b76b84100/" target="_blank">Elena Mate</a>, <a href="https://www.linkedin.com/in/davina-tijani-75320b79/" target="_blank">Davina Tijani</a>, &amp; <a href="https://www.linkedin.com/in/soraiyasalemohamed/" target="_blank">Soraiya Salemohamed</a></p>
+		</div>	
+		<footer class="footer">
+			<p>Developed by <a href="https://www.linkedin.com/in/elena-mat%C3%A9-m%C3%BAgica-b76b84100/" target="_blank">Elena Mate</a>, <a href="https://www.linkedin.com/in/davina-tijani-75320b79/" target="_blank">Davina Tijani</a>, &amp; <a href="https://www.linkedin.com/in/soraiyasalemohamed/" target="_blank">Soraiya Salemohamed</a></p>
 
-	</footer>
-	<script type="text/javascript" src="./assets/hos2.js"></script>
-	<script src="js/mapthree.js"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrmpo41rCZfkN9Qu6QWCb08JSXU9K6yY4&callback=initMap" async defer></script>
-</body>
+		</footer>
+		<script type="text/javascript" src="./assets/hos2.js"></script>
+		<script src="js/mapthree.js"></script>
+		<script src="js/charts.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrmpo41rCZfkN9Qu6QWCb08JSXU9K6yY4&callback=initMap" async defer></script>
+	</body>
 </html>

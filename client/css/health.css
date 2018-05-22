@@ -210,13 +210,12 @@ margin-bottom: 10px;
     color: white;
     bottom: 20px;
     width: 11.4em;
-    padding: 2em;
+    padding: 0.5em;
     word-wrap: break-word;
 }
 
 #popup3 {
   position: absolute;
-    /* top: 100px; */
     left: 10px;
     background-color: #323545bb;
     height: 5em;
@@ -227,7 +226,7 @@ margin-bottom: 10px;
     color: white;
     bottom: 20px;
     width: 11.4em;
-    padding: 2em;
+    padding: 0.5em;
     word-wrap: break-word;
 }
 
@@ -277,33 +276,19 @@ label {
 }
 
 
-/* 
-#console {
-position: absolute;
-width: 240px;
-margin: 10px;
-padding: 10px 20px;
-background-color: white;
-} */
+select {
+  background-color: #ff4172;
+  color: white;
+  padding: 1em;
+  border: none;
+}
 
-
-/* .session {
-margin-bottom: 20px;
-} */
-
-/* .row {
-height: 12px;
-width: 100%;
-} */
-
-/* .colors {
-background: linear-gradient(to right, #2dc4b2, #3bb3c3, #669ec4, #8b88b6, #a2719b, #aa5e79);
-margin-bottom: 5px;
-} */
-
-
-
-
+select::after {
+  background-color: #ff4172;
+  color: white;
+  padding: 1em;
+  border: none;
+}
 .show {
 	visibility: visible;
 	opacity: 1;
@@ -314,7 +299,8 @@ margin-bottom: 5px;
 	opacity: 0;
 }
 .container2 {
-	display: flex;
+  display: flex;
+  margin-bottom: 40px;
 }
 
 
@@ -437,7 +423,7 @@ li:last-of-type .text {
 	padding: .5em;
 	position: relative;
 	padding-left: calc(32px + 1em);
-	padding-right: 4em;
+	padding-right: 6em;
 }
 
 .map2 .legend2 span:first-of-type {
