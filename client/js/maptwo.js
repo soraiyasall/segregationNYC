@@ -79,18 +79,23 @@ const hospitals = (function() {
 			map: map,
 			center: {lat: entry.latitude, lng: entry.longitude},
 		});
-
-
-		circle.addListener('mouseover', putValueInLegend.bind(null, entry));
-
+		
+		const hospital = geoJson2.features.find(item => item.properties.id === entry.fac_id);
+		circle.addListener('mouseover', putValueInLegend.bind(null, entry,hospital.properties.facility_name));
 		circles.push(circle)
 	};
 
-	const putValueInLegend = (entry) => {
+	const putValueInLegend = (entry, hName) => {
 		Object.keys(entry).filter(k => k !== 'latitude' && k !== 'longitude' && k !== 'fac_id').forEach(variable => {
             const container = document.querySelector('.legend2 .' + variable);
 			container.innerHTML = entry[variable].toFixed(2);
 		});
+		const container = document.getElementById('popup6');
+		const inner = document.querySelector('.content6');
+		const content6 = `
+				<p><span class="title">${hName}</span> </p>`; 
+		inner.innerHTML = content6;
+		container.className = 'show';
 	};
 
 	const drawLegend = (x, names) => {
@@ -103,10 +108,8 @@ const hospitals = (function() {
 		container.innerHTML = '<ul>' + Array(x).fill().map((_, i) => circle(COLORS[i], names[i])).join('') + '</ul>'
 	};
 
-	let selectedField;
 
 	const attachEvents = map => {
-		// circle.addListener('mouseover', e => {
 			geoJson2.features.forEach(hos => {
 				let circle = new google.maps.Circle({                                 
 					fillColor: '#f768a1',
@@ -117,15 +120,7 @@ const hospitals = (function() {
 					map: map,
 					center: {lat : hos.properties.latitude, lng : hos.properties.longitude}
 				});
-				// const buildPopup = (hName) => {
-				// 	const container = document.getElementById('popup6');
-				// 	const inner = document.querySelector('.content6');
-				// 	const content6 = `
-				// 			<p><span class="title">${hName}</span> </p>`; 
-				// 	inner.innerHTML = content6;
-				// 	container.className = 'show';
-				// };
-			// });
+
 		});
 
 		document.querySelector('.severity').addEventListener('click', e => {
@@ -138,7 +133,7 @@ const hospitals = (function() {
 				.then(data => {
                     const tract = data.filter(crossRef);
                     drawLegend(Object.keys(tract[0]).length - 3, severity);
-
+					console.log(tract)
 					tract.forEach(entry => {
 						severity.forEach(plotCircles(entry, map));
 					});
