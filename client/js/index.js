@@ -411,7 +411,7 @@ census.init();
     
       // Optional; add a title and set the width and height of the chart
       var options = {
-          colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'], 
+          colors: ['#28B463','#fa0177', '#c51bfa','#5DADE2','#E67E22'], 
           'chartArea': {'width': '100%', 'height': '80%'},
           backgroundColor: {'fill':'transparent'},
           tooltip: {title:" ",
