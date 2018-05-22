@@ -106,16 +106,26 @@ const hospitals = (function() {
 	let selectedField;
 
 	const attachEvents = map => {
-		geoJson2.features.forEach(hos => {
-			let circle = new google.maps.Circle({                                 
-				fillColor: '#f768a1',
-				fillOpacity: 1,
-				radius: 250,
-				strokeColor: 'white',
-				strokeWeight: .4,
-				map: map,
-				center: {lat : hos.properties.latitude, lng : hos.properties.longitude}
-			});
+		// circle.addListener('mouseover', e => {
+			geoJson2.features.forEach(hos => {
+				let circle = new google.maps.Circle({                                 
+					fillColor: '#f768a1',
+					fillOpacity: 1,
+					radius: 250,
+					strokeColor: 'white',
+					strokeWeight: .4,
+					map: map,
+					center: {lat : hos.properties.latitude, lng : hos.properties.longitude}
+				});
+				// const buildPopup = (hName) => {
+				// 	const container = document.getElementById('popup6');
+				// 	const inner = document.querySelector('.content6');
+				// 	const content6 = `
+				// 			<p><span class="title">${hName}</span> </p>`; 
+				// 	inner.innerHTML = content6;
+				// 	container.className = 'show';
+				// };
+			// });
 		});
 
 		document.querySelector('.severity').addEventListener('click', e => {
@@ -266,12 +276,14 @@ const hospitals = (function() {
 								center: {lat: entry.latitude, lng: entry.longitude},
 							});
                             circle.addListener('mouseover', putValueInLegend.bind(null, entry));
-							circles.push(circle)
+							circles.push(circle);
+
                         });
 					});
 				});
 		});
 	};
+
 
 
 	const buildMap = _ => {
@@ -465,44 +477,6 @@ const hospitals = (function() {
 
 hospitals.init();
 
-// google.charts.load("current", {packages:["corechart"]});
-//     google.charts.setOnLoadCallback(drawChart);
-//     function drawChart() {
-//       var data = google.visualization.arrayToDataTable([
-//         ['Insurance', 'Percentage'],
-//         ['Bluecross Blueshield', 7.49],
-//         ['Department of Corrections', 0.13],
-//         ['Federal State Local Va', 0.23],
-//         ['Managed Care', 0.22],
-//         ['Medicaid', 41.38],
-//         ['Medicare',32.86 ],
-//         ['Misc Payment', 0.89],
-//         ['Private', 13.33],
-//         ['Self Payment', 2.93 ],
-//         ['Unknown Payment', 0.54 ]
-//       ]);
-
-//       var view = new google.visualization.DataView(data);
-
-//       var options = {
-//         width: 600,
-//         height: 400,
-//         chartArea: {
-//             top: 55,
-//             height: '40%' 
-//          },
-//         bar: {groupWidth: "95%"},
-//         colors: ['#ff4172',],         backgroundColor: {'fill':'transparent'},
-//         tooltip: {title:" ",
-//           textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
-//         legend: {
-//         position:'none'},
-//         vAxis: {textStyle: {fontName:'Raleway, sans-serif', fontSize: 12, color: '#323545'}},
-
-//       };
-//       var chart = new google.visualization.BarChart(document.getElementById("barchartinsurance"));
-//       chart.draw(view, options);
-//   }
 
   google.charts.load("current", {packages:["corechart"]});
     google.charts.setOnLoadCallback(drawChart);

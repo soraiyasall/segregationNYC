@@ -193,6 +193,39 @@ margin-bottom: 10px;
 
 }
 
+#popup6 {
+	position: absolute;
+    right: 10px;
+    background-color: #323545bb;
+    height: 5em;
+    border: 1px solid;
+    border-radius: 3px;
+    border: none;
+    margin: 0 auto;
+    color: white;
+    bottom: 20px;
+    width: 11.4em;
+    padding: 2em;
+    word-wrap: break-word;
+}
+
+#popup3 {
+  position: absolute;
+    /* top: 100px; */
+    left: 10px;
+    background-color: #323545bb;
+    height: 5em;
+    border: 1px solid;
+    border-radius: 3px;
+    border: none;
+    margin: 0 auto;
+    color: white;
+    bottom: 20px;
+    width: 11.4em;
+    padding: 2em;
+    word-wrap: break-word;
+}
+
 /* Filter Fields */
 
 .filterField {
@@ -303,38 +336,9 @@ margin-bottom: 5px;
 
 /* Charts */
 
-
-.contextinfo{
-	padding-top: 0.5em;
-}
-.contextinfo h1 {
-	text-align: center;
-	font-size: 2em;
-	margin-bottom: 10px;
-
-}
-.contextinfo .container {
-	padding: 0.3em;
-	color:white;
-}
-
-.contextinfo .container h3 {
-	text-align: center;
-	font-size: 1.2em;
-	text-transform: uppercase;
-}
-
-.contextinfo .container p {
-	padding: 1em;
-	line-height: 25px;
-
-}
-
 .chart {
 	width: 100%;
 }
-
-
 
 
 .legend {
@@ -342,8 +346,9 @@ margin-bottom: 5px;
 	bottom: 20px;
 	right: 5px;
 	width: 40%;
-	background: white;
-	padding: .5em 1em 1.5em;
+	background-color:#ffffffc2;
+  padding: .5em 1em 1.5em;
+  border-radius: 3px;
 }
 
 .legend li {
@@ -443,19 +448,6 @@ li:last-of-type .text {
 
 }
 
-#popup3 {
-	position: absolute;
-	top: 15px;
-	left: 20px;
-	width: 18em;
-	background-color: black;
-	height: 7em;
-	border: 1px solid;
-	border-radius: 3px;
-	border-color: #2f2fa2;
-	color: white;
-
-}
 
 #popup4 {
 	position: absolute;
@@ -476,21 +468,6 @@ li:last-of-type .text {
 
 
 
-.column-left2 { 
-	float: left; 
-	width: 50%; 
-	padding: 0 1em;
-	overflow: hidden;
-
-}
-
-.column-right2{
-	float: right;
-	width: 50%;
-	padding: 0 1em;
-	overflow: hidden;
-
-}
 
 /* Footer */
 /* 
