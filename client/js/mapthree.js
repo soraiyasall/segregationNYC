@@ -36,7 +36,7 @@ const hospitals = (function() {
 	const payment = [
 		'per_bluecross_blueshield',
 		'per_depofcorrections',
-		'per_federal_state_local_va',
+		'federal_state_local_va',
 		'per_managedcare',
 		'per_medicaid',
 		'per_medicare',
