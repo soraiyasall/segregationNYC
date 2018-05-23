@@ -1,5 +1,5 @@
 const hospitals = (function() {
-	const COLORS = ['#28B463','#fa0177', '#c51bfa','#5DADE2','#E67E22','#c51b8a','#7a0177','#2C3E50','#fbb409','#0768a1'];
+	const COLORS = ['#28B463','#fa0177', '#c51bfa','#5DADE2','#E67E22','#c51b8a','#ff0000','#2C3E50','#fbb409','#0768a1'];
 	const centers =[
 		'latitude',
 		'longitude'
@@ -36,7 +36,7 @@ const hospitals = (function() {
 	const payment = [
 		'per_bluecross_blueshield',
 		'per_depofcorrections',
-		'federal_state_local_va',
+		'per_federal_state_local_va',
 		'per_managedcare',
 		'per_medicaid',
 		'per_medicare',

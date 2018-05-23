@@ -158,7 +158,7 @@ app.get('/hospitals/race', (req, res) => {
 });
 app.get('/hospitals/payment', (req, res) => {
 
-	connection.query('SELECT per_bluecross_blueshield, per_depofcorrections, federal_state_local_va, per_managedcare, per_medicaid, per_medicare, per_miscpayment, per_private, per_selfpayment, per_unknownpayment, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
+	connection.query('SELECT per_bluecross_blueshield, per_depofcorrections, per_federal_state_local_va, per_managedcare, per_medicaid, per_medicare, per_miscpayment, per_private, per_selfpayment, per_unknownpayment, latitude, longitude, fac_id FROM hospitals;', function (error, results, fields) {
 		if (error) {
 			console.log('Error in /hospitals/payment route: ', error);
 		}

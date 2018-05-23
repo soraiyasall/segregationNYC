@@ -110,9 +110,9 @@ const census = (function() {
         if (type === 'Men' || type === 'Women' || type === 'Asian' ||type === 'White' || type ==='Black' || type === 'Hispanic'){
             return  [20,40,60,80,100]
         } else if (type === 'Income'){
-            return ['2M','4M','6M','8M','10M']
+            return ['9.8k','41k','54k','72k','148k']
         }else if (type === 'Unemployment') {
-            return ['2M','4M','6M','8M','10M']
+            return ['6.45','9.10','12.2','40.7','62.7']
         }else {
             return[]
         }
