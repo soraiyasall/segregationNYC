@@ -6,4 +6,4 @@ More and more Americans are losing access to healthcare due to exorbitant costs 
 
 Segregation is spatially distributed, particularly in healthcare centres. Despite the Affordable Care Act signed in 2010, there remains disparities on access to medical insurance, which impacts choice of health care centres. Geographic segregation is still deeply entrenched in society. Hospitals with a history of treating certain ethnic groups are still under-staffed and under-resourced.
 
-We've mapped out hospital choice based on payment type, neighbourhood, and, cost. Studies have indicated, amongst adult hospital discharges, that ethnic minorities, uninsured people and Medicaid patients are vastly underrepresented in New York City’s academic medical centres. Simply click on the button below to understand the ethnic makeup of New York City.
+We've mapped out hospital choice based on payment type, neighbourhood, and, cost. Studies have indicated, amongst adult hospital discharges, that ethnic minorities, uninsured people and Medicaid patients are vastly underrepresented in New York City’s academic medical centres. 
